@@ -1,0 +1,67 @@
+// ------------ HAMBURGER MENU --------------
+main {
+    position: relative;
+}
+
+.hamMenu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    // left: 100%;
+    right: 0;
+    background-color: aqua;
+    // transform: left 2s linear;
+    display: none;
+}
+
+.openMenu {
+    display: block;
+    // left: 0;
+}
+
+
+
+// .hamburger {
+//     position: fixed;
+//     top: 40px;
+//     right: 40px;
+//     font-size: 5rem;
+//     display: none;
+//     z-index: 10;
+//     label {
+//         color: black;
+//     }
+//     input[type="checkbox"] {
+//         display: none;
+//     }
+//     nav {
+//         display: flex;
+//         // background-color: $secondaryTwo;
+//         flex-direction: column;
+//         justify-content: space-around;
+//         align-items: center;
+//         // li {
+//         //     padding-left: 0;
+//         // }
+//         // a {
+//         //     color: $white;
+//         // }
+//         // a:hover {
+//         // border-bottom: 2px solid $accent;
+//         // }  
+//         position: fixed;
+//         top: 0;
+//         width: 50%;
+//         height: 50vh;
+//         right: -50%;
+//         transition: all 0.5s;
+//         z-index: -5;
+//     }
+//     input[type="checkbox"]:checked + .hamNav {
+//         right: 0;  /*when the checkbox is checked, put the hamburger nav back to right:0; It was at right:-100%;*/
+//     }
+//     input[type="checkbox"]:checked ~ label[for="toggle"] {
+//         // color: white;
+//     }
+// }

@@ -1,0 +1,26 @@
+main {
+    height: 80vh;
+    .flexContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+    }
+}
+.numBox {
+        width: 100px;
+        height: 100px;
+        background-color: crimson;
+        border: 1px solid black;
+}
+
+.luckyNumbersContainer, 
+.yourNumbersContainer {
+    display: flex;
+}
+
+.yourNumbersContainer {
+    flex-wrap: wrap;
+}
+

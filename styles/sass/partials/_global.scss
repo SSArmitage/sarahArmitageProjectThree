@@ -1,0 +1,84 @@
+// REMOVE DEFAULTS
+body, h1, h2, h3, p, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+ul, li {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+button {
+    border: none;
+}
+
+fieldset {
+    border: none;
+}
+
+input {
+    border: none;
+}
+
+textarea {
+    border: none;
+}
+
+// GENERAL STYLES
+html {
+	font-size: 62.5%;
+}
+
+.wrapper {
+    max-width: 1280px;
+    width: 80%;
+	margin: 0 auto;
+}
+
+img {
+    width: 100%;
+	display: block;
+}
+
+// nav a {
+//     color: $secondary;
+//     text-transform: uppercase;
+// }
+
+// button {
+//     padding: 10px 40px;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// body {
+//     background: blueviolet;
+//     // media query nested at end of body css
+//     @include mq-tablet {
+//         // css for media query goes in here
+//         background: pink;
+//         font-size: 45px;
+//     }
+
+//      @include mq-mobile {
+//         // css for media query goes in here
+//         background:dodgerblue;
+//         font-size: 45px;
+//     }
+// }
