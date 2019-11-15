@@ -6,11 +6,10 @@
 // set up totalPrizeAmount, initialize to 0
 // ☑️user clicks LUCKY NUMBER boxes to reveal numbers
 // ☑️user clicks YOUR NUMBER boxes to reveal numbers
-// loop through YOUR NUMBERS and...
-// if the  YOUR NUMBERS scratched matches one of the LUCKY NUMBERS, user wins the prize amount associated with that number's box, add to totalPrizeAmount
-// after all boxes are revealed  user clicks the "check card" button
-// on "click" of the button the user will be informed of the prize amount won
-// ☑️user can click a button for a new game (resets the scratch card)
+// ☑️after all boxes are revealed  user clicks the "submit card" button. On "click" of the button, loop through YOUR NUMBERS and...
+// ☑️if the  YOUR NUMBERS scratched matches one of the LUCKY NUMBERS, user wins the prize amount associated with that number's box, if multiple are a match, add the prize amounts together (add to totalPrizeAmount for stretch) 
+// ☑️the user will be informed of the prize amount won
+// user can click a button for a new game (resets the scratch card)
 
 
 // ***stretch goals*** 
@@ -51,6 +50,7 @@ scratchCardApp.luckyNumbersArray = [];
 scratchCardApp.yourNumbersArray = [];
 scratchCardApp.prizeAmountArray = [];
 scratchCardApp.gamePrizeAmount = 0;
+scratchCardApp.finalGamePrizeAmount;
 
 // hamburger menu (contains game instructions)
 scratchCardApp.displayHamburger = function() {
@@ -147,8 +147,29 @@ scratchCardApp.prizeAmountWon = function () {
         }
     }
     // convert prizeAmount back to a string and add "$" to the front
-    let gamePrizeAmount = `$${scratchCardApp.gamePrizeAmount.toString()}`;
-    console.log(gamePrizeAmount);
+    scratchCardApp.finalGamePrizeAmount = `$${scratchCardApp.gamePrizeAmount.toString()}`;
+    console.log(scratchCardApp.finalGamePrizeAmount);
+}
+
+// display prize screen to alert user of the amount won during this game
+scratchCardApp.displayPrizeScreen = function() {
+    if (scratchCardApp.finalGamePrizeAmount !== '$0') {
+        console.log("you win");
+        console.log(scratchCardApp.finalGamePrizeAmount);
+        
+        $('main .flexContainer').append(`
+        <div class="prizeAlertContainer">
+            <div class=prizeAlert>
+                <p>Winner!</p>
+                <p>${scratchCardApp.finalGamePrizeAmount}</p>
+            </div>
+        </div>    
+        `); 
+    } else {
+        console.log(scratchCardApp.finalGamePrizeAmount);
+        console.log(`you lose`);
+        
+    }
 }
 
 // contains all the events to listen for
@@ -173,6 +194,8 @@ scratchCardApp.events = function() {
         scratchCardApp.prizeAmountWon();
         // $('.scratchBoxCover').removeClass('scratched');
         // scratchCardApp.assignRandomNumber();
+
+        scratchCardApp.displayPrizeScreen();
     })
 
     // click on RESET BUTTON
