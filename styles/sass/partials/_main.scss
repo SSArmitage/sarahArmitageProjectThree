@@ -24,3 +24,35 @@ main {
     flex-wrap: wrap;
 }
 
+.numBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .ranNum {
+        font-size: 3.2rem;
+    }
+    .ranPrize {
+        font-size: 2.0rem;
+    }
+}
+
+.scratchBoxCover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: blueviolet;
+
+}
+
+.scratched {
+    opacity: 0;
+}
+
+button.submit {
+    font-size: 2.4rem;
+    padding: 20px 25px;
+    background-color:dodgerblue;
+}
+
