@@ -3,17 +3,17 @@
 // ☑️LUCKY NUMBERS and YOUR NUMBERS get randomly generated & added to the DOM using Math.random (1-20)
 // 2 LUCKY NUMBERS, 6 YOUR NUMBERS
 // ☑️prize amounts get randomly generated and assigned to a YOUR NUMBER box (prize array has 4 values = i.e. $100, $2, $10, $45) -> use Math.random to pick a random # 0-3 and then use that as a index to pick a prize amount from prize array
-// set up totalPrizeAmount, initialize to 0
+// ☑️set up totalPrizeAmount, initialize to 0
 // ☑️user clicks LUCKY NUMBER boxes to reveal numbers
 // ☑️user clicks YOUR NUMBER boxes to reveal numbers
 // ☑️after all boxes are revealed  user clicks the "submit card" button. On "click" of the button, loop through YOUR NUMBERS and...
 // ☑️if the  YOUR NUMBERS scratched matches one of the LUCKY NUMBERS, user wins the prize amount associated with that number's box, if multiple are a match, add the prize amounts together (add to totalPrizeAmount for stretch) 
 // ☑️the user will be informed of the prize amount won
-// user can click a button for a new game (resets the scratch card)
+// ☑️user can click a button for a new game (resets the scratch card)
 
 
 // ***stretch goals*** 
-// => coin cursor
+// => ☑️coin cursor
 // => animating scratch 
 // => additional games keeps track of accumulated prize
 // => add additional game to card: three boxes where the user scratches and has to find 3 identical symbol
@@ -23,6 +23,13 @@
 // => cache selectors
 // => favicon
 // => accessible
+
+// ******design******
+// => copy actual lottery tickets
+// => bright colors
+// => cool font for name
+// => remove submit button when win/non-win alert pops up
+// => larger screens: keep "ticket" size w/ grey background
 
 
 // -------------------------
@@ -136,7 +143,7 @@ scratchCardApp.prizeAmountWon = function () {
     // loop through the items in yourNumbersArray (the 6 randomly chosen numbers displayed in YOUR NUMBERS scratch boxes)
     for (let i = 0; i < 6; i++) {
         // if the number at the ith position of yourNumbersArray is equal to the first LUCKY NUMBER or if it is equal to the second LUCKY NUMBER
-        if (scratchCardApp.yourNumbersArray[i] === scratchCardApp.luckyNumbersArray[0] ||              scratchCardApp.yourNumbersArray[i] === scratchCardApp.luckyNumbersArray[1]) {
+        if (scratchCardApp.yourNumbersArray[i] === scratchCardApp.luckyNumbersArray[0] || scratchCardApp.yourNumbersArray[i] === scratchCardApp.luckyNumbersArray[1]) {
             
             // prizeAmount started at 0, add the matching numbers' prize value to the prizeAmount variable (able to do this b/c the yourNumbersArray[i] and numberPrizeArray[i] correspond to the same ith scratch box)
             scratchCardApp.gamePrizeAmount += numberPrizeArray[i];
@@ -162,13 +169,22 @@ scratchCardApp.displayPrizeScreen = function() {
             <div class=prizeAlert>
                 <p>Winner!</p>
                 <p>${scratchCardApp.finalGamePrizeAmount}</p>
+                <button class="reset">New Card</button>
             </div>
         </div>    
         `); 
     } else {
         console.log(scratchCardApp.finalGamePrizeAmount);
         console.log(`you lose`);
-        
+
+        $('main .flexContainer').append(`
+        <div class="prizeAlertContainer">
+            <div class=prizeAlert>
+                <p>Non-winner</p>
+                <button class="reset">New Card</button>
+            </div>
+        </div>    
+        `); 
     }
 }
 
@@ -192,14 +208,29 @@ scratchCardApp.events = function() {
     // checks to see how many numbers matched, and informs user of the total amount won
     $('.submit').on('click', function() {
         scratchCardApp.prizeAmountWon();
-        // $('.scratchBoxCover').removeClass('scratched');
-        // scratchCardApp.assignRandomNumber();
-
         scratchCardApp.displayPrizeScreen();
     })
 
     // click on RESET BUTTON
     // resets the card
+    $('main .flexContainer').on('click', '.reset', function() {
+        console.log('reset button clicked!');
+
+        // remove the prize alert
+        $('.prizeAlertContainer').remove(); 
+        // reset variables
+        scratchCardApp.luckyNumbersArray = [];
+        scratchCardApp.yourNumbersArray = [];
+        scratchCardApp.prizeAmountArray = [];
+        scratchCardApp.gamePrizeAmount = 0;
+        scratchCardApp.finalGamePrizeAmount;
+        // put cover back on scratch boxes
+        $('.scratchBoxCover').removeClass('scratched');
+        // call the fxn to assign the random numbers to the scratch boxes
+        scratchCardApp.assignRandomNumber();
+       
+        
+    })
 
 }
 

@@ -365,7 +365,6 @@ button.submit {
   width: 80%;
   height: 100px;
   background-color: goldenrod;
-  z-index: 20;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -379,7 +378,20 @@ button.submit {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.prizeAlert p {
   font-size: 4.0rem;
+}
+
+.prizeAlert button {
+  font-size: 2.0rem;
+  padding: 10px 20px;
+  background-color: dodgerblue;
+}
+
+.numBox {
+  cursor: url("../assets/coinCursor.png"), auto;
 }
 
 footer {
