@@ -188,6 +188,10 @@ scratchCardApp.displayPrizeScreen = function() {
     }
 }
 
+scratchCardApp.submitButtonToggle = function() {
+    $('.submit').toggleClass('hide');
+}
+
 // contains all the events to listen for
 scratchCardApp.events = function() {
     //event listeners here
@@ -209,6 +213,7 @@ scratchCardApp.events = function() {
     $('.submit').on('click', function() {
         scratchCardApp.prizeAmountWon();
         scratchCardApp.displayPrizeScreen();
+        scratchCardApp.submitButtonToggle();
     })
 
     // click on RESET BUTTON
@@ -228,8 +233,10 @@ scratchCardApp.events = function() {
         $('.scratchBoxCover').removeClass('scratched');
         // call the fxn to assign the random numbers to the scratch boxes
         scratchCardApp.assignRandomNumber();
-       
-        
+
+        // 
+        // $('.submit').removeClass('.displayNone');
+        scratchCardApp.submitButtonToggle();
     })
 
 }

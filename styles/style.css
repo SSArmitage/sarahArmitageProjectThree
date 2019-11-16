@@ -224,8 +224,9 @@ img {
 }
 
 header {
-  height: 10vh;
-  background-color: peachpuff;
+  height: 18vh;
+  padding: 10px 0;
+  background-color: #00adef;
 }
 
 header .flexContainer {
@@ -243,6 +244,17 @@ header .flexContainer {
 
 header i {
   font-size: 3rem;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+.headerText {
+  height: 100%;
+  color: #ffc905;
+  background: #00adef;
+  text-shadow: 0px 0px 0 #899CD5, 1px 1px 0 #8194CD, 2px 2px 0 #788BC4, 3px 3px 0 #6F82BB, 4px 4px 0 #677AB3, 5px 5px 0 #5E71AA, 6px 6px 0 #5568A1, 7px 7px 0 #4C5F98, 8px 8px 0 #445790, 9px 9px 0 #3B4E87, 10px 10px 0 #32457E, 11px 11px 0 #2A3D76, 12px 12px 0 #21346D, 13px 13px 0 #182B64, 14px 14px 0 #0F225B, 15px 15px 0 #071A53, 16px 16px 0 #02114A, 17px 17px 0 #0B0841, 18px 18px 0 #130039, 19px 19px 0 #1C0930, 20px 20px 0 #251227, 21px 21px 20px black, 21px 21px 1px rgba(0, 0, 0, 0.5), 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 main {
@@ -265,6 +277,7 @@ main {
 
 main {
   height: 80vh;
+  background-color: #d9098c;
 }
 
 main .flexContainer {
@@ -288,7 +301,7 @@ main .flexContainer {
 .numBox {
   width: 100px;
   height: 100px;
-  background-color: crimson;
+  background-color: #00adef;
   border: 1px solid black;
 }
 
@@ -312,9 +325,9 @@ main .flexContainer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -343,7 +356,7 @@ main .flexContainer {
 button.submit {
   font-size: 2.4rem;
   padding: 20px 25px;
-  background-color: dodgerblue;
+  background-color: #ffc905;
 }
 
 .prizeAlertContainer {
@@ -363,8 +376,7 @@ button.submit {
 
 .prizeAlert {
   width: 80%;
-  height: 100px;
-  background-color: goldenrod;
+  background-image: url("../assets/33077-starburst-kid-hd-photos.png");
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -387,16 +399,20 @@ button.submit {
 .prizeAlert button {
   font-size: 2.0rem;
   padding: 10px 20px;
-  background-color: dodgerblue;
+  background-color: #ffc905;
 }
 
 .numBox {
   cursor: url("../assets/coinCursor.png"), auto;
 }
 
+.hide {
+  visibility: hidden;
+}
+
 footer {
   height: 10vh;
-  background-color: peachpuff;
+  background-color: #00adef;
 }
 
 footer .flexContainer {
