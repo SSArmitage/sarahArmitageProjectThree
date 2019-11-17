@@ -3,6 +3,11 @@ main {
     position: relative;
 }
 
+.hamburgerIcon {
+    height: 100%;
+    padding-top: 25px;
+}
+
 .hamMenu {
     position: absolute;
     top: 0;
@@ -10,14 +15,60 @@ main {
     left: 0;
     // left: 100%;
     right: 0;
-    background-color: aqua;
+    z-index: 20;
+    // background-image: url(../assets/rainbow_bckgr_04.jpeg);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     // transform: left 2s linear;
     display: none;
 }
 
 .openMenu {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     // left: 0;
+}
+
+.instructionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    font-family: 'Rubik', sans-serif;
+    // font-family: 'Noto Sans JP', sans-serif;
+    h2 {
+        margin-bottom: 15px;
+        font-size: 4.0rem;
+        font-family: 'Bebas Neue', cursive;
+    }
+    ul {
+        font-size: 2.0rem;
+    }
+    li {
+        position: relative;
+        margin-bottom: 12px;
+        // list-style-image: url(../assets/coinCursor.png);
+        // // background-repeat: no-repeat;
+        // // background-position:  left 9px;
+        // padding-left: 12px;
+        // display: block;
+    }
+    li::before {
+        content: '';
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: -2px;
+        left: -30px;
+        bottom: 0;
+        background-image: url(../assets/coinBullet.png);
+         background-repeat: no-repeat;
+        background-position:  center;
+    }
 }
 
 

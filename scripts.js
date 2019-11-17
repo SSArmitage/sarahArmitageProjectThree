@@ -60,18 +60,29 @@ scratchCardApp.gamePrizeAmount = 0;
 scratchCardApp.finalGamePrizeAmount;
 
 // hamburger menu (contains game instructions)
-scratchCardApp.displayHamburger = function() {
-    $('header .flexContainer').append(`
-        <i class="fa fa-bars"></i>
-    `)
-    $('main').append(`
-        <div class=hamMenu>
-            <h2>How to Play</h2>
-        </div>
-    `);
-}
+// scratchCardApp.displayHamburger = function() {
+//     // $('header .flexContainer').append(`
+//     //     <i class="fa fa-bars"></i>
+//     // `)
+//     // $('main').append(`
+//     //     <div class=hamMenu>
+//     //         <h2>How to Play</h2>
+//     //     </div>
+//     // `);
+
+// }
 
 // cover scratch squares
+// $('#elem').wScratchPad({
+//     size: 5,          // The size of the brush/scratch.
+//     bg: ,  // Background (image path or hex color).
+//     fg: '#6699ff',  // Foreground (image path or hex color).
+//     realtime: true,       // Calculates percentage in realitime.
+//     scratchDown: null,       // Set scratchDown callback.
+//     scratchUp: null,       // Set scratchUp callback.
+//     scratchMove: null,       // Set scratcMove callback.
+//     cursor: 'crosshair' // Set cursor.
+// });
 
 
 // generate random numbers between 1-20 (number on scratch boxes)
@@ -169,7 +180,7 @@ scratchCardApp.displayPrizeScreen = function() {
             <div class=prizeAlert>
                 <p>Winner!</p>
                 <p>${scratchCardApp.finalGamePrizeAmount}</p>
-                <button class="reset">New Card</button>
+                <button class="reset outline">New Card</button>
             </div>
         </div>    
         `); 
@@ -181,7 +192,7 @@ scratchCardApp.displayPrizeScreen = function() {
         <div class="prizeAlertContainer">
             <div class=prizeAlert>
                 <p>Non-winner</p>
-                <button class="reset">New Card</button>
+                <button class="reset outline">New Card</button>
             </div>
         </div>    
         `); 
@@ -197,10 +208,16 @@ scratchCardApp.events = function() {
     //event listeners here
 
     // click on HAMBURGER MENU
-    $('.flexContainer').on('click', 'i', function() {
+
+    // $('.flexContainer').on('click', 'i', function() {
+    //     console.log("I clicked the hamburger");
+    //     $('.hamMenu').toggleClass('openMenu');
+    // });
+
+    $('.fa-bars').on('click', function() {
         console.log("I clicked the hamburger");
-        $('.hamMenu').toggleClass('openMenu')
-    });
+        $('.hamMenu').toggleClass('openMenu');
+    })
 
     // click on SCRATCH BOX
     $('.numBox').on('click','.scratchBoxCover', function() {
@@ -245,7 +262,7 @@ scratchCardApp.events = function() {
 // contains fxns ready to be initialized at runtime
 scratchCardApp.init = function() {
     scratchCardApp.events();
-    scratchCardApp.displayHamburger();
+    // scratchCardApp.displayHamburger();
     scratchCardApp.assignRandomNumber();
     console.log("document is initalized");
 }

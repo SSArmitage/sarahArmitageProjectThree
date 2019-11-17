@@ -1,5 +1,5 @@
 main {
-    height: 80vh;
+    height: 70vh;
     background-color: #d9098c;
     .flexContainer {
         display: flex;
@@ -13,18 +13,55 @@ main {
 
 .numBox {
         width: 100px;
+        // width: 80px;
         height: 100px;
+        // height: 80px;
         background-color: #00adef;
         border: 1px solid black;
+        // margin: 2px;
 }
 
 .luckyNumbersContainer, 
 .yourNumbersContainer {
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    // color: white;
+    align-items: center;
+    font-size: 1.5rem;
+    h2 {
+        padding-bottom: 5px;
+    }
 }
 
-.yourNumbersContainer {
+.boxContainer {
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+}
+
+// .luckyNumbersContainer .box1::before  {
+//     content: 'LUCKY NUMBERS';
+//     position: absolute;
+//     top: 0;
+//     color: white;
+//     font-size: 2.5rem;
+// }
+
+// .yourNumbersContainer .box1::before  {
+//     content: 'YOUR NUMBERS';
+//     position: absolute;
+//     top: 0;
+//     color: white;
+//     font-size: 2.5rem;
+// }
+
+.yourNumbersContainer {
+    // flex-wrap: wrap;
+    // flex-direction: column;
+    .boxContainer {
+        flex-wrap: wrap;
+    }
 }
 
 .numBox {
@@ -73,22 +110,33 @@ button.submit {
 
 .prizeAlert {
     width: 80%;
-    // height: 100px;
+    height: 236px;
     // background-color: goldenrod;
-    background-image: url('../assets/33077-starburst-kid-hd-photos.png');
-    
+    background-image: url('../assets/starburst.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     // z-index: 20;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    p {
-        font-size: 4.0rem;
+   
+    p:nth-of-type(1) {
+        font-size: 3.5rem;
+        // margin-bottom: 5px;
+        // font-family: 'Bebas Neue', cursive;
+    }
+    p:nth-of-type(2) {
+        font-size: 3.0rem;
+         font-family: 'Rubik', sans-serif;
+        //  font-weight: bold;
     }
     button {
         font-size: 2.0rem;
         padding: 10px 20px;
         background-color: #ffc905;
+        margin-top: 5px;
     }
 }
 

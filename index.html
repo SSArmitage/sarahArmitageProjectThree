@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://kit.fontawesome.com/5fe8efb412.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Rubik:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <title>Scratch Card Game</title>
 </head>
@@ -15,33 +16,47 @@
             <div class="headerText">
                 <h1>Scratch 'n Match</h1>
             </div>
+            <div class="hamburgerIcon">
+                <i class="fa fa-bars"></i>
+            </div>
         </div>
-
-        <!-- <div id="demotext">Edit this text</div> -->
-
-        <!-- hamburger menu with game instructions -->
-        <!-- <div class=hamMenu>
-                        <h2>How to Play</h2>
-                    </div> -->
     </header>
     <!-- MAIN -->
     <main>
+        <!-- hamburger menu with game instructions -->
+        <div class=hamMenu>
+            <div class="instructionContainer">
+                <h2>How to Play</h2>
+                <ul>
+                    <li>Scratch <strong>LUCKY NUMBERS</strong> and <strong>YOUR NUMBERS</strong>.</li>
+                    <li>If you match any of <strong>YOUR NUMBERS</strong> to either of the <strong>LUCKY NUMBERS</strong>, you win the prize asscoiated with the matching <strong>YOUR NUMBER</strong> box.</li>
+                    <li>If you match multiple <strong>YOUR NUMBERS</strong> to the <strong>LUCKY NUMBERS</strong>, the associated prizes are combined.</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="wrapper flexContainer">
             <div class="luckyNumbersContainer">
-                <div class="numBox box1"></div>
-                <div class="numBox box2"></div>
+                <h2 class="outline">Lucky Numbers</h2>
+                <div class="boxContainer">
+                    <div class="numBox box1" id="elem"></div>
+                    <div class="numBox box2"></div>
+                </div>
             </div>
 
             <div class="yourNumbersContainer">
-                <div class="numBox box3"></div>
-                <div class="numBox box4"></div>
-                <div class="numBox box5"></div>
-                <div class="numBox box6"></div>
-                <div class="numBox box7"></div>
-                <div class="numBox box8"></div>
+                <h2 class="outline">Your Numbers</h2>
+                <div class="boxContainer">
+                    <div class="numBox box3"></div>
+                    <div class="numBox box4"></div>
+                    <div class="numBox box5"></div>
+                    <div class="numBox box6"></div>
+                    <div class="numBox box7"></div>
+                    <div class="numBox box8"></div>
+                </div>
             </div>
 
-            <button class="submit">Submit Card</button>
+            <button class="submit outline">Submit Card</button>
         </div>
     </main>
     <!-- FOOTER -->
@@ -55,6 +70,8 @@
     <!-- JQUERY LIBRARY -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- SCRATCHPAD PLUGIN -->
+    <script type="text/javascript" src="./wScratchPad.min.js"></script>
     <!-- EXTERNAL JS -->
     <script src="scripts.js"></script>    
 </body>
