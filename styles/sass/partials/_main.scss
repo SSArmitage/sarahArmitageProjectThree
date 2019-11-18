@@ -1,6 +1,6 @@
 main {
     height: 70vh;
-    background-color: #d9098c;
+    background-color: $secondary;
     .flexContainer {
         display: flex;
         flex-direction: column;
@@ -12,11 +12,21 @@ main {
 }
 
 .numBox {
-        width: 80px;
-        height: 80px;
-        background-color: #00adef;
-        border: 2px solid black;
-        // margin: 2px;
+    width: 80px;
+    height: 80px;
+    background-color: $primary;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    .ranNum {
+        font-size: 3.2rem;
+    }
+    .ranPrize {
+        font-size: 2.0rem;
+    }
 }
 
 .luckyNumbersContainer,
@@ -24,7 +34,6 @@ main {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    // color: white;
     align-items: center;
     font-size: 1.5rem;
     margin-top: 10px;
@@ -62,44 +71,11 @@ main {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    // border: 2px solid black;
 }
-
-// .luckyNumbersContainer .box1::before  {
-//     content: 'LUCKY NUMBERS';
-//     position: absolute;
-//     top: 0;
-//     color: white;
-//     font-size: 2.5rem;
-// }
-
-// .yourNumbersContainer .box1::before  {
-//     content: 'YOUR NUMBERS';
-//     position: absolute;
-//     top: 0;
-//     color: white;
-//     font-size: 2.5rem;
-// }
 
 .yourNumbersContainer {
-    // flex-wrap: wrap;
-    // flex-direction: column;
     .boxContainer {
         flex-wrap: wrap;
-    }
-}
-
-.numBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    position: relative;
-    .ranNum {
-        font-size: 3.2rem;
-    }
-    .ranPrize {
-        font-size: 2.0rem;
     }
 }
 
@@ -107,8 +83,6 @@ main {
     position: absolute;
     width: 100%;
     height: 100%;
-    // width: 80px;
-    // height: 80px;
     background-color: blueviolet;
     border: 2px soild black;
 }
@@ -120,15 +94,12 @@ main {
 button.submit {
     font-size: 2.4rem;
     padding: 15px 20px;
-    background-color: #ffc905;
 }
 
 
 .prizeAlertContainer {
     width: 100%;
     height: 100%;
-    // background-color: lightblue;
-    // z-index: 10;
     position: absolute;
     display: flex;
     align-items: center;
@@ -139,12 +110,6 @@ button.submit {
     position: relative;
     width: 80%;
     height: 236px;
-    // background-color: goldenrod;
-    // background-image: url('../assets/starburst.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    // z-index: 20;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -154,18 +119,14 @@ button.submit {
     }
     p:nth-of-type(1) {
         font-size: 3.5rem;
-        // margin-bottom: 5px;
-        // font-family: 'Bebas Neue', cursive;
     }
     p:nth-of-type(2) {
         font-size: 3.0rem;
          font-family: 'Rubik', sans-serif;
-        //  font-weight: bold;
     }
     button {
         font-size: 2.0rem;
         padding: 10px 20px;
-        background-color: #ffc905;
         margin-top: 5px;
     }
 }
@@ -180,35 +141,9 @@ button.submit {
   cursor: url('../assets/coinCursor.png'), auto;	
 }
 
-// temp remove submit button
+// remove submit button
 .hide {
     visibility: hidden;;
-}
-
-// scratch effect
-.grid {
-    // display: none;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-}
-
-// .visbleGrid {
-//     display: flex;
-//     flex-wrap: wrap;
-//     align-items: flex-start;
-// }
-
-.grid span {
-    display: block;
-    width: 10px;
-    height: 10px;
-    // float: left;
-    border:1px solid rgba(0,0,0,0.03);
-    background-color: orange;
-}
-.grid span.filled {
-    background:#c0392b;
 }
 
 

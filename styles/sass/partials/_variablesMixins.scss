@@ -1,19 +1,4 @@
-@mixin mq-tablet {
-    @media (max-width: 1023px) {
-        // content placeholder
-        @content;
-    }
-}
-
-@mixin mq-mobile {
-    @media (max-width: 1023px) {
-        // content placeholder
-        @content;
-    }
-}
-
-// @mixin flexContainerMixin() {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-// }
+$primary: #00adef;
+$seoncdary: #d9098c;
+$accent: #ffc905;
+$hover: rgb(61, 230, 230);
