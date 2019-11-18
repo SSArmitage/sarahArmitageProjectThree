@@ -156,7 +156,7 @@ scratchCardApp.events = function() {
     //event listeners here
 
     // click on HAMBURGER MENU
-    $('.fa-bars').on('click', function() {
+    $('.fa-question').on('click', function() {
         $('.hamMenu').toggleClass('openMenu');
     })
 
