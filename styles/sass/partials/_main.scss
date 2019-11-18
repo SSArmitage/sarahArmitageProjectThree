@@ -12,16 +12,14 @@ main {
 }
 
 .numBox {
-        width: 100px;
-        // width: 80px;
-        height: 100px;
-        // height: 80px;
+        width: 80px;
+        height: 80px;
         background-color: #00adef;
         border: 1px solid black;
         // margin: 2px;
 }
 
-.luckyNumbersContainer, 
+.luckyNumbersContainer,
 .yourNumbersContainer {
     display: flex;
     justify-content: center;
@@ -29,9 +27,17 @@ main {
     // color: white;
     align-items: center;
     font-size: 1.5rem;
+    margin-top: 10px;
     h2 {
         padding-bottom: 5px;
     }
+}
+
+.lineOne,
+.lineTwo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .boxContainer {
@@ -82,8 +88,10 @@ main {
     position: absolute;
     width: 100%;
     height: 100%;
+    // width: 80px;
+    // height: 80px;
     background-color: blueviolet;
-
+    border: 2px soild black;
 }
 
 .scratched {
@@ -92,7 +100,7 @@ main {
 
 button.submit {
     font-size: 2.4rem;
-    padding: 20px 25px;
+    padding: 15px 20px;
     background-color: #ffc905;
 }
 
@@ -109,10 +117,11 @@ button.submit {
 }
 
 .prizeAlert {
+    position: relative;
     width: 80%;
     height: 236px;
     // background-color: goldenrod;
-    background-image: url('../assets/starburst.png');
+    // background-image: url('../assets/starburst.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -121,7 +130,9 @@ button.submit {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
+    p {
+        z-index: 1;
+    }
     p:nth-of-type(1) {
         font-size: 3.5rem;
         // margin-bottom: 5px;
@@ -140,6 +151,12 @@ button.submit {
     }
 }
 
+#starBurst {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
 .numBox {
   cursor: url('../assets/coinCursor.png'), auto;	
 }
@@ -147,6 +164,55 @@ button.submit {
 // temp remove submit button
 .hide {
     visibility: hidden;;
+}
+
+// scratch effect
+.grid {
+    // display: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+// .visbleGrid {
+//     display: flex;
+//     flex-wrap: wrap;
+//     align-items: flex-start;
+// }
+
+.grid span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    // float: left;
+    border:1px solid rgba(0,0,0,0.03);
+    background-color: orange;
+}
+.grid span.filled {
+    background:#c0392b;
+}
+
+
+// MEDIA QUERIES
+@media (min-width: 499px) {
+    header,
+    main,
+    footer {
+        max-width: 499px;
+        margin: 0 auto;
+    }
+    body {
+            background-color: #1c1f1d;
+        }
+
+}
+
+@media (max-width: 400px) {
+    main {
+        .wrapper {
+            width: 100%;
+        }
+    }
 }
 
 
