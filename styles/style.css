@@ -235,7 +235,7 @@ button {
   background-color: #ffc905;
 }
 
-h2, button {
+.flexContainer h2, button {
   color: #ffffff;
 }
 
@@ -282,7 +282,6 @@ h1 {
 }
 
 .headerText {
-  height: 100%;
   color: #ffc905;
   background: #00adef;
 }
@@ -347,6 +346,7 @@ main {
 
 .instructionContainer h2 {
   margin-bottom: 15px;
+  padding-right: 20px;
   font-size: 4.0rem;
   font-family: 'Bebas Neue', cursive;
 }
