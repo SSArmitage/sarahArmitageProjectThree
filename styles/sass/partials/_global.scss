@@ -56,18 +56,30 @@ button {
     background-color: $accent;
 }
 
-button:hover {
-    background-color: $hover;
+// button:hover {
+//     // background-color: $hover;
+// }
+
+h2, button {
+    color: #ffffff;
 }
 
- .outline {
-color: #FFFFFF;   
+.outline {
+// color: #FFFFFF;   
 text-shadow: 2px 2px 0 black, 2px -2px 0 black, 2px -1px 0 black,2px 1px 0 black, -2px 2px 0 black, -2px -2px 0 black, 2px 0px 0 black, 0px 2px 0 black, -2.1px 0px 0 black, -1px 0px 0 black, -2px -1px 0 black, 0px -2px 0 black;
 }
 
 strong {
     font-weight: bold;
 }
+
+ canvas {
+    /*background-color: green;*/
+    position: absolute;
+    // left: 0;
+    // top: 0;
+    z-index: 20;
+} 
 
 
 

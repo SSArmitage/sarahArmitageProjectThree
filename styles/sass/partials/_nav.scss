@@ -3,6 +3,10 @@ main {
     position: relative;
 }
 
+.fa-question {
+    cursor: pointer;
+}
+
 .hamburgerIcon {
     height: 100%;
     padding-top: 25px;
@@ -14,7 +18,7 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 20;
+    z-index: 40;
     background-color: #fafafa;
     background-repeat: no-repeat;
     background-position: center;

@@ -69,7 +69,8 @@ scratchCardApp.assignRandomNumber = function() {
             scratchCardApp.luckyNumbersArray.push(randomNumber);
             $(`.box${i}`).html(`
                 <p class='ranNum'>${randomNumber}</p>
-                <div class="scratchBoxCover"></div>
+                <canvas width=80 height=80></canvas>
+                <div id="spots"></div>
             `);
         }
     } 
@@ -90,9 +91,102 @@ scratchCardApp.assignRandomNumber = function() {
         $(`.box${i}`).html(`
             <p class='ranNum'>${randomNumber}</p>
             <p class='ranPrize'>${randomPrize}</p>
-            <div class="scratchBoxCover"></div>
+            <canvas width=80 height=80></canvas>
+             <div id="spots"></div>
         `);
-    }    
+    }  
+    scratchCardApp.setUpCanvas()
+    // setTimeout(() => {
+    //     scratchCardApp.setUpCanvas()
+    // }, 400);
+}
+
+scratchCardApp.setUpCanvas = function () {
+    let canvasNodeList = document.querySelectorAll("canvas")
+
+    canvasNodeList.forEach((canvas) => {
+        console.log(canvas);
+        
+        // let cont = document.getElementById("spots") // UI elements
+        // let canvas = document.getElementById("canvas")
+        // let alpha = document.getElementById("alpha")
+        // let modes = document.getElementById("modes")
+        let ctx = canvas.getContext("2d")
+        let isDown = false // defaults
+        let color = "blueviolet";
+        const audio = $("#scratchingSound")["0"]
+        console.log(audio);
+        
+
+        // set up color palette using a custom "Spot" object
+        // This will use a callback function when it is clicked, to
+        // change current color
+        // function Spot(color, cont, callback) {
+        //     var div = document.createElement("div");
+        //     div.style.cssText = "width:50px;height:50px;border:1px solid #000;margin:0 1px 1px 0;background:" + color;
+        //     div.onclick = function () {
+        //         callback(color)
+        //     };
+        //     cont.appendChild(div);
+        // }
+
+        // add some spot colors to our palette container
+        // new Spot(color, cont, setColor);
+
+        // this will set current fill style based on spot clicked
+        // function setColor(c) {
+        //     ctx.fillStyle = c
+        // }
+
+        // setup defaults
+        ctx.fillStyle = color;
+        ctx.globalAlpha = 1;
+
+        // create a rectangle using canvas functions, not CSS
+        // background color.
+        const createRect = (ctx, width, height) => {
+            ctx.fillRect(0, 0, width, height)
+        }
+
+        createRect(ctx, 300, 300)
+
+        // events
+        canvas.onmousedown = function () {
+            isDown = true
+            // When the mouse is down, play the audio file to simulate scratching sound
+            // the audio file has no sound for the first second or so, start the file 2 seconds in
+            audio.currentTime = 2
+            // the audio file is a bit fast, slow down the scratching sound a bit
+            audio.playbackRate = 0.7
+            audio.play()
+            // tag the box as scratched
+            $(this).addClass('scratched');
+        };
+
+        canvas.onmouseup = function () {
+            isDown = false
+            // When the mouse is back up, stop the audio file 
+            audio.pause()
+        };
+        canvas.onmousemove = function (e) {
+            if (!isDown) return;
+            var r = canvas.getBoundingClientRect(),
+                x = e.clientX - r.left,
+                y = e.clientY - r.top;
+
+            // you needed a bit more code here:
+            ctx.fillStyle = "rgba(255, 255, 255, 0.5)"
+
+            ctx.save();
+            ctx.globalCompositeOperation = 'destination-out';
+
+            ctx.beginPath();
+            ctx.arc(x, y, 10, 0, 2 * Math.PI, false);
+            ctx.fill();
+
+            ctx.restore();
+        };
+    })
 }
 
 // determining the prizeAmountWon for this game
@@ -140,7 +234,9 @@ scratchCardApp.displayPrizeScreen = function() {
                 <div id="starBurst" class="imageContainer">
                     <img src="./assets/starburst.png">
                 </div>
-                <button class="reset outline">New Card</button>
+                <div class="buttonContainer">
+                    <button class="reset outline">New Card</button>
+                </div>
             </div>
         </div>    
         `); 
@@ -149,7 +245,15 @@ scratchCardApp.displayPrizeScreen = function() {
 
 scratchCardApp.submitButtonToggle = function() {
     $('.submit').toggleClass('hide');
+    // $('.buttonContainer').toggleClass('hide');
 }
+
+// add the scratch box covers
+// for (let x=0; x<300; x++) {
+//     $('.scratchBoxCover').append(`
+//     <div class="gridDiv" id="${x}"></div>
+//     `)
+// }
 
 // function that contains all the events to listen for
 scratchCardApp.events = function() {
@@ -161,16 +265,50 @@ scratchCardApp.events = function() {
     })
 
     // click on SCRATCH BOX
-    $('.numBox').on('click','.scratchBoxCover', function() {
-        $(this).addClass('scratched');
+    // $('.numBox').on('click','.scratchBoxCover', function() {
+    //     $(this).addClass('scratched');
+    // })
+
+    $('.gridDiv').on('mouseover', function () {
+        // console.log(this);
+        // console.log(event);
+        
+        $(this).addClass('notVisible')
+        const sibs = $(this).siblings()
+        // console.log(sibs);
     })
 
     // click on SUBMIT CARD BUTTON
     // checks to see how many numbers matched, and informs user of the total amount won
     $('.submit').on('click', function() {
-        scratchCardApp.prizeAmountWon();
-        scratchCardApp.displayPrizeScreen();
-        scratchCardApp.submitButtonToggle();
+        // first check to see if all the boxes have been scratched
+        const canvasArray = Array.from($("canvas"))
+        console.log(canvasArray);
+        let counter = 0;
+        canvasArray.some((canvas) => {
+            if (canvas.classList.length === 0) {
+                // if the canvas element has an empty class list, that means that the class="scratched" was not added, and therefore, the box was not scratched
+                // alert the user that they must scratch all of the boxes
+                alert("You must scratch all the boxes before submitting the card!")
+            } else {
+                // if the canvas element does not have an empty class list, that means that the class="scratched" was added, and therefore, the box was scratched
+                // increment the counter
+                counter++
+                if (counter === 8) {
+                    // if the counter reaches a value of 8 that means that all the boxes were scratched, and the card can be submitted
+                    // call the following functions
+                    scratchCardApp.prizeAmountWon();
+                    scratchCardApp.displayPrizeScreen();
+                    scratchCardApp.submitButtonToggle();
+                }
+            }
+            // if the canvas element has an empty class list, exit the function (b/c at least one box has not been scratched, and the card cannot be submitted)
+            return canvas.classList.length === 0
+        })
+
+        // scratchCardApp.prizeAmountWon();
+        // scratchCardApp.displayPrizeScreen();
+        // scratchCardApp.submitButtonToggle();
     })
 
     // click on RESET BUTTON
@@ -193,6 +331,7 @@ scratchCardApp.events = function() {
     })
 }
 
+
 // INIT FXN
 // contains fxns ready to be initialized at runtime
 scratchCardApp.init = function() {
@@ -204,3 +343,5 @@ scratchCardApp.init = function() {
 $(document).ready(function () {
     scratchCardApp.init();
 });
+
+// -----------------------------------

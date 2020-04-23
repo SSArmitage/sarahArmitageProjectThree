@@ -235,17 +235,22 @@ button {
   background-color: #ffc905;
 }
 
-button:hover {
-  background-color: #3de6e6;
+h2, button {
+  color: #ffffff;
 }
 
 .outline {
-  color: #FFFFFF;
   text-shadow: 2px 2px 0 black, 2px -2px 0 black, 2px -1px 0 black,2px 1px 0 black, -2px 2px 0 black, -2px -2px 0 black, 2px 0px 0 black, 0px 2px 0 black, -2.1px 0px 0 black, -1px 0px 0 black, -2px -1px 0 black, 0px -2px 0 black;
 }
 
 strong {
   font-weight: bold;
+}
+
+canvas {
+  /*background-color: green;*/
+  position: absolute;
+  z-index: 20;
 }
 
 header {
@@ -280,11 +285,14 @@ h1 {
   height: 100%;
   color: #ffc905;
   background: #00adef;
-  text-shadow: 0px 0px 0 #899CD5, 1px 1px 0 #8194CD, 2px 2px 0 #788BC4, 3px 3px 0 #6F82BB, 4px 4px 0 #677AB3, 5px 5px 0 #5E71AA, 6px 6px 0 #5568A1, 7px 7px 0 #4C5F98, 8px 8px 0 #445790, 9px 9px 0 #3B4E87, 10px 10px 0 #32457E, 11px 11px 0 #2A3D76, 12px 12px 0 #21346D, 13px 13px 0 #182B64, 14px 14px 0 #0F225B, 15px 15px 0 #071A53, 16px 16px 0 #02114A, 17px 17px 0 #0B0841, 18px 18px 0 #130039, 19px 19px 0 #1C0930, 20px 20px 0 #251227, 21px 21px 20px black, 21px 21px 1px rgba(0, 0, 0, 0.5), 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 main {
   position: relative;
+}
+
+.fa-question {
+  cursor: pointer;
 }
 
 .hamburgerIcon {
@@ -298,7 +306,7 @@ main {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 20;
+  z-index: 40;
   background-color: #fafafa;
   background-repeat: no-repeat;
   background-position: center;
@@ -411,10 +419,14 @@ main .flexContainer {
 
 .numBox .ranNum {
   font-size: 3.2rem;
+  position: relative;
+  z-index: 10;
 }
 
 .numBox .ranPrize {
   font-size: 2.0rem;
+  position: relative;
+  z-index: 10;
 }
 
 .luckyNumbersContainer,
@@ -490,12 +502,85 @@ main .flexContainer {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: blueviolet;
   border: 2px soild black;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (5px)[16];
+      grid-template-columns: repeat(16, 5px);
+  overflow: hidden;
 }
 
-.scratched {
+.gridDiv {
+  background-color: blueviolet;
+  width: 5px;
+  height: 5px;
+  position: relative;
+  z-index: 20;
+}
+
+.notVisible {
   opacity: 0;
+  border-radius: 50%;
+}
+
+.siblingRight {
+  position: relative;
+  background-color: none;
+  background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, blueviolet 60%);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.siblingRightTop {
+  position: relative;
+  background-color: none;
+  background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, blueviolet 40%);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.siblingLeftTop {
+  position: relative;
+  background-color: none;
+  background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, blueviolet 40%);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.siblingLeft {
+  position: relative;
+  background-color: none;
+  background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, blueviolet 60%);
+}
+
+.siblingTop {
+  position: relative;
+  background-color: none;
+  background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, blueviolet 60%);
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.siblingBottom {
+  position: relative;
+  background-color: none;
+  background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, blueviolet 60%);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.siblingRightBottom {
+  position: relative;
+  background-color: none;
+  background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, blueviolet 40%);
+}
+
+.siblingLeftBottom {
+  position: relative;
+  background-color: none;
+  background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, blueviolet 40%);
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
 }
 
 button.submit {
@@ -535,6 +620,7 @@ button.submit {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 30;
 }
 
 .prizeAlert p {
@@ -564,6 +650,7 @@ button.submit {
 
 .numBox {
   cursor: url("../assets/coinCursor.png"), auto;
+  overflow: hidden;
 }
 
 .hide {
@@ -586,6 +673,32 @@ button.submit {
   main .wrapper {
     width: 100%;
   }
+}
+
+.buttonContainer {
+  border-radius: 5px;
+}
+
+button {
+  -webkit-box-shadow: 5px 5px 5px black;
+          box-shadow: 5px 5px 5px black;
+}
+
+button::before {
+  content: " ";
+  position: absolute;
+  background-image: linear-gradient(-45deg, transparent 33%, rgba(255, 255, 255, 0.4) 50%, transparent 66%);
+  width: 400px;
+  height: 80px;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  left: -300px;
+  top: -15px;
+  z-index: 10;
+}
+
+button:hover::before {
+  left: 100px;
 }
 
 footer {

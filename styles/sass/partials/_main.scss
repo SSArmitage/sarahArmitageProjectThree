@@ -23,9 +23,13 @@ main {
     position: relative;
     .ranNum {
         font-size: 3.2rem;
+        position: relative;
+        z-index: 10;
     }
     .ranPrize {
         font-size: 2.0rem;
+        position: relative;
+        z-index: 10;
     }
 }
 
@@ -83,12 +87,237 @@ main {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: blueviolet;
+    // background-color: blueviolet;
     border: 2px soild black;
+    display: grid;
+    grid-template-columns: repeat(16, 5px);
+    overflow: hidden;
+}
+
+.gridDiv {
+    background-color: blueviolet;
+    width: 5px;
+    height: 5px;
+    position: relative;
+    z-index: 20;
+}
+
+.notVisible {
+    opacity: 0;
+    border-radius: 50%;
+}
+
+.siblingRight {
+    position: relative;
+    background-color: none;
+    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
+    background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, rgba(138, 43, 226, 1) 60%);
+    transform: rotate(180deg);
+    // &:after {
+    //     content: '';
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     left: -4px;
+    //     border-radius: 50%;
+    //     background-color: $primary;
+    //     z-index: 5;
+    // }
+}
+
+.siblingRightTop {
+    position: relative;
+    background-color: none;
+    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
+    background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, rgba(138, 43, 226, 1) 40%);
+    transform: rotate(-90deg);
+    //    &:before {
+    //     content: '';
+    //     position: absolute;
+    //     width: 50%;
+    //     height: 8px;
+    //     top: -2px;
+    //     right: 3px;
+    //     // border-radius: 50%;
+    //     // background-color: $primary;
+    //     background-color: blueviolet;
+    //     transform: rotate(45deg)
+    //     // z-index: 5;
+    // }
+    // &:after {
+    //     content: '';
+    //     position: absolute;
+    //     width: 50%;
+    //     height: 8px;
+    //     top: -1px;
+    //     right: 3px;
+    //     // border-radius: 50%;
+    //     background-color: blueviolet;
+    //     // background-color: black;
+    //     transform: rotate(135deg)
+    //     // z-index: 5;
+    // }
+}
+
+.siblingLeftTop {
+    position: relative;
+    background-color: none;
+    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
+    background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, rgba(138, 43, 226, 1) 40%);
+    transform: rotate(180deg);
+    //    &:before {
+    //     content: '';
+    //     position: absolute;
+    //     width: 50%;
+    //     height: 8px;
+    //     top: -2px;
+    //     right: 3px;
+    //     // border-radius: 50%;
+    //     // background-color: $primary;
+    //     background-color: blueviolet;
+    //     transform: rotate(45deg)
+    //     // z-index: 5;
+    // }
+    // &:after {
+    //     content: '';
+    //     position: absolute;
+    //     width: 50%;
+    //     height: 8px;
+    //     top: -1px;
+    //     right: 3px;
+    //     // border-radius: 50%;
+    //     background-color: blueviolet;
+    //     // background-color: black;
+    //     transform: rotate(135deg)
+    //     // z-index: 5;
+    // }
+}
+
+.siblingLeft {
+    position: relative;
+    background-color: none;
+    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
+    background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, rgba(138, 43, 226, 1) 60%);
+    // &:after {
+    //     content: '';
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     right: -4px;
+    //     border-radius: 50%;
+    //     background-color: $primary;
+    //     z-index: 5;
+    // }
+}
+
+.siblingTop {
+    position: relative;
+    background-color: none;
+    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
+    background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, rgba(138, 43, 226, 1) 60%);
+    transform: rotate(90deg)
+    // &:after {
+    //     content: '';
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     bottom: -4px;
+    //     border-radius: 50%;
+    //     background-color: $primary;
+    //     z-index: 5;
+    // }
+}
+
+.siblingBottom {
+    position: relative;
+    background-color: none;
+    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
+    background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, rgba(138, 43, 226, 1) 60%);
+    transform: rotate(-90deg)
+    
+    // &:after {
+    //     content: '';
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     top: -4px;
+    //     border-radius: 50%;
+    //     background-color: $primary;
+    //     z-index: 5;
+    // }
+}
+
+.siblingRightBottom {
+    position: relative;
+    background-color: none;
+    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
+    background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, rgba(138, 43, 226, 1) 40%);
+    // transform: rotate(-135deg);
+    // &:before {
+    //     content: '';
+    //     position: absolute;
+    //     width: 50%;
+    //     height: 8px;
+    //     top: -2px;
+    //     right: 3px;
+    //     // border-radius: 50%;
+    //     // background-color: $primary;
+    //     background-color: blueviolet;
+    //     transform: rotate(45deg)
+    //     // z-index: 5;
+    // }
+    // &:after {
+    //     content: '';
+    //     position: absolute;
+    //     width: 50%;
+    //     height: 8px;
+    //     top: -1px;
+    //     right: 3px;
+    //     // border-radius: 50%;
+    //     background-color: blueviolet;
+    //     // background-color: black;
+    //     transform: rotate(135deg)
+    //     // z-index: 5;
+    // }
+}
+
+.siblingLeftBottom {
+    position: relative;
+    background-color: none;
+    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
+    background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, rgba(138, 43, 226, 1) 40%);
+    transform: rotate(90deg); 
+    //    &:before {
+    //     content: '';
+    //     position: absolute;
+    //     width: 50%;
+    //     height: 8px;
+    //     top: -2px;
+    //     right: 3px;
+    //     // border-radius: 50%;
+    //     // background-color: $primary;
+    //     background-color: blueviolet;
+    //     transform: rotate(45deg)
+    //     // z-index: 5;
+    // }
+    // &:after {
+    //     content: '';
+    //     position: absolute;
+    //     width: 50%;
+    //     height: 8px;
+    //     top: -1px;
+    //     right: 3px;
+    //     // border-radius: 50%;
+    //     background-color: blueviolet;
+    //     // background-color: black;
+    //     transform: rotate(135deg)
+    //     // z-index: 5;
+    // } 
 }
 
 .scratched {
-    opacity: 0;
+    // opacity: 0;
+    // z-index: 5
 }
 
 button.submit {
@@ -114,6 +343,7 @@ button.submit {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 30;
     p {
         z-index: 1;
     }
@@ -138,7 +368,8 @@ button.submit {
 }
 
 .numBox {
-  cursor: url('../assets/coinCursor.png'), auto;	
+  cursor: url('../assets/coinCursor.png'), auto;
+  overflow: hidden;	
 }
 
 // remove submit button
@@ -169,4 +400,28 @@ button.submit {
     }
 }
 
+.buttonContainer {
+    border-radius: 5px;
+    // position: relative;
+    // overflow: hidden;
+}
 
+button {
+    box-shadow: 5px 5px 5px black;
+}
+
+button::before {
+    content: " ";
+    position: absolute;
+    background-image: linear-gradient(-45deg, transparent 33%, rgba(255, 255, 255, 0.4) 50%, transparent 66%);
+    width: 400px;
+    height: 80px;
+    transition: 0.7s;
+    left: -300px;
+    top: -15px;
+    z-index: 10;
+}
+
+button:hover::before {
+    left: 100px;
+}
