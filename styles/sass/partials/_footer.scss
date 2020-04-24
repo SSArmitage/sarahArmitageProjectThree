@@ -1,6 +1,14 @@
 footer {
-    height: 5vh;
-    background-color: $primary;
+    // height: 10vh;
+    // position: absolute;
+    width: 100%;
+    position: relative;
+    z-index: 50;
+    height: 8vh;
+    // bottom: 33px;
+    // left: 95px;
+    // background-color: $primary;
+    background-image: linear-gradient(to top, $primary, rgba(255,255,255,0));
     font-size: 1.6rem;
     .flexContainer {
         display: flex;

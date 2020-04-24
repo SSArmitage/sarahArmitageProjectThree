@@ -54,6 +54,8 @@ button {
     position: relative;
     overflow: hidden;
     background-color: $accent;
+    // box-shadow: 2px 2px 5px black;
+    border: 4px solid black;
 }
 
 // button:hover {
@@ -73,13 +75,14 @@ strong {
     font-weight: bold;
 }
 
- canvas {
-    /*background-color: green;*/
+canvas {
+    // background-color: green;
     position: absolute;
     // left: 0;
     // top: 0;
     z-index: 20;
 } 
+
 
 
 

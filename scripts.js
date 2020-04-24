@@ -213,7 +213,7 @@ scratchCardApp.prizeAmountWon = function () {
 scratchCardApp.displayPrizeScreen = function() {
     // winner card
     if (scratchCardApp.finalGamePrizeAmount !== '$0') {
-        $('main .flexContainer').append(`
+        $('main .gameContainer').append(`
         <div class="prizeAlertContainer">
             <div class=prizeAlert>
                 <p>Winner!</p>
@@ -227,7 +227,7 @@ scratchCardApp.displayPrizeScreen = function() {
         `); 
     // non-winner card
     } else {
-        $('main .flexContainer').append(`
+        $('main .gameContainer').append(`
         <div class="prizeAlertContainer">
             <div class=prizeAlert>
                 <p>Non-winner</p>

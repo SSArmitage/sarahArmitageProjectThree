@@ -5,11 +5,26 @@ main {
 
 .fa-question {
     cursor: pointer;
+    position: relative;
+    color: blueviolet;
 }
 
 .hamburgerIcon {
     height: 100%;
-    padding-top: 25px;
+    // padding-top: 25px;
+    padding-top: 10px;
+    position: relative;
+    &:before {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 100%;
+        top: 0;
+        left: -13px;
+        background-image: url("../assets/coinCursor.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
 }
 
 .hamMenu {
