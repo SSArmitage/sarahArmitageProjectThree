@@ -47,6 +47,8 @@ scratchCardApp.prizeAmountArray = [];
 scratchCardApp.gamePrizeAmount = 0;
 scratchCardApp.finalGamePrizeAmount;
 scratchCardApp.buttonDisabled = false
+scratchCardApp.bodyEl = $("body")[0]
+// console.log(scratchCardApp.bodyEl);
 
 // generate random numbers between 1-20 (number on scratch boxes)
 scratchCardApp.generateRandomNumber = function() {
@@ -227,15 +229,18 @@ scratchCardApp.setUpCanvas = function () {
         // }
 
         // Prevent page scrolling when touching the canvas
+        
+        
         document.body.addEventListener("touchstart", function (e) {
             if (e.target == canvas) {
                 console.log(`helloooo`);
-                
+                scratchCardApp.bodyEl.addClass("stopScroll")
                 e.preventDefault();
             }
         }, false);
         document.body.addEventListener("touchend", function (e) {
             if (e.target == canvas) {
+                scratchCardApp.bodyEl.removeClass("sropScroll")
                 e.preventDefault();
             }
         }, false);

@@ -277,6 +277,10 @@ canvas {
   background-position: center;
 }
 
+.stopScroll {
+  position: fixed;
+}
+
 header {
   height: 25vh;
   padding: 20px 0;
