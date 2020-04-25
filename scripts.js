@@ -226,24 +226,24 @@ scratchCardApp.setUpCanvas = function () {
         //     };
         // }
 
-        // Prevent scrolling when touching the canvas
-        // document.body.addEventListener("touchstart", function (e) {
-        //     if (e.target == canvas) {
-        //         console.log(`helloooo`);
+        // Prevent page scrolling when touching the canvas
+        document.body.addEventListener("touchstart", function (e) {
+            if (e.target == canvas) {
+                console.log(`helloooo`);
                 
-        //         e.preventDefault();
-        //     }
-        // }, false);
-        // document.body.addEventListener("touchend", function (e) {
-        //     if (e.target == canvas) {
-        //         e.preventDefault();
-        //     }
-        // }, false);
-        // document.body.addEventListener("touchmove", function (e) {
-        //     if (e.target == canvas) {
-        //         e.preventDefault();
-        //     }
-        // }, false);
+                e.preventDefault();
+            }
+        }, false);
+        document.body.addEventListener("touchend", function (e) {
+            if (e.target == canvas) {
+                e.preventDefault();
+            }
+        }, false);
+        document.body.addEventListener("touchmove", function (e) {
+            if (e.target == canvas) {
+                e.preventDefault();
+            }
+        }, false);
     })
 }
 
