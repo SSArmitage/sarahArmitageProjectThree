@@ -47,7 +47,7 @@ scratchCardApp.prizeAmountArray = [];
 scratchCardApp.gamePrizeAmount = 0;
 scratchCardApp.finalGamePrizeAmount;
 scratchCardApp.buttonDisabled = false
-scratchCardApp.bodyEl = $("body")[0]
+scratchCardApp.bodyEl = $("body")
 // console.log(scratchCardApp.bodyEl);
 
 // generate random numbers between 1-20 (number on scratch boxes)
