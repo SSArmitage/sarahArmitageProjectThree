@@ -15,4 +15,4 @@ Used git!
 https://ssarmitage.github.io/scratch-n-match/
 
 ## Preview
-<img width="493" alt="Screen Shot 2020-04-24 at 12 29 54 PM" src="https://user-images.githubusercontent.com/48597469/80235389-a519cf00-8627-11ea-98e6-71a046373921.png">
+<img width="327" alt="Screen Shot 2020-04-24 at 11 29 21 PM" src="https://user-images.githubusercontent.com/48597469/80270121-79c4cd80-8683-11ea-81ec-b56e85d5fc8e.png">
