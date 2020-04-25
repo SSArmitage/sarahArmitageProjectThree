@@ -1,12 +1,15 @@
 header {
     height: 25vh;
-    padding: 10px 0;
-    background-color: $primary;
-    background-image: linear-gradient(to bottom, rgba(255,0,0,0), $secondary);
+    padding: 20px 0;
+    position: relative;
+    z-index: 20;
+    // background-color: $primary;
+    // background-image: linear-gradient(to bottom, rgba(255,0,0,0), $secondary);
+    background-image: linear-gradient(to bottom, $primary, rgba(255,255,255,0));
     .flexContainer {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        // align-items: center;
         height: 100%;
     }
     i {

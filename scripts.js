@@ -46,6 +46,7 @@ scratchCardApp.yourNumbersArray = [];
 scratchCardApp.prizeAmountArray = [];
 scratchCardApp.gamePrizeAmount = 0;
 scratchCardApp.finalGamePrizeAmount;
+scratchCardApp.buttonDisabled = false
 
 // generate random numbers between 1-20 (number on scratch boxes)
 scratchCardApp.generateRandomNumber = function() {
@@ -215,12 +216,9 @@ scratchCardApp.displayPrizeScreen = function() {
     if (scratchCardApp.finalGamePrizeAmount !== '$0') {
         $('main .gameContainer').append(`
         <div class="prizeAlertContainer">
-            <div class=prizeAlert>
+            <div class="prizeAlert" id="starBurst">
                 <p>Winner!</p>
                 <p>${scratchCardApp.finalGamePrizeAmount}</p>
-                <div id="starBurst" class="imageContainer">
-                    <img src="./assets/starburst.png">
-                </div>
                 <button class="reset outline">New Card</button>
             </div>
         </div>    
@@ -229,11 +227,8 @@ scratchCardApp.displayPrizeScreen = function() {
     } else {
         $('main .gameContainer').append(`
         <div class="prizeAlertContainer">
-            <div class=prizeAlert>
+            <div class="prizeAlert" id="starBurst">
                 <p>Non-winner</p>
-                <div id="starBurst" class="imageContainer">
-                    <img src="./assets/starburst.png">
-                </div>
                 <div class="buttonContainer">
                     <button class="reset outline">New Card</button>
                 </div>

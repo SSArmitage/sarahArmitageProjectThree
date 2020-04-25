@@ -1,10 +1,16 @@
 main {
     height: 75vh;
     // height: 77vh;
-    background-color: $secondary;
+    // background-color: $secondary;
+    //  background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+    // background-image: url("https://www.transparenttextures.com/patterns/dimension.png");
+    // background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
+    // background-image: url("https://www.transparenttextures.com/patterns/starring.png");
+    // background-image: url("https://www.transparenttextures.com/patterns/triangles.png");
     position: relative;
     overflow: hidden;
     padding-bottom: 50px;
+    z-index: 20;
     &:after {
         content: "";
         position: absolute;
@@ -65,6 +71,12 @@ main {
     // margin-top: 10px;
     h2 {
         padding-bottom: 5px;
+        text-shadow: none;
+        background-color: black;
+        // margin-bottom: 5px;
+        padding: 5px 5px;
+        border-radius: 5px;
+        text-transform: uppercase;
     }
 }
 
@@ -364,6 +376,7 @@ button.submit {
     display: flex;
     align-items: center;
     justify-content: center;
+    top: -46px;
 }
 
 .prizeAlert {
@@ -377,9 +390,11 @@ button.submit {
     z-index: 30;
     p {
         z-index: 1;
+        font-weight: bold;
     }
     p:nth-of-type(1) {
         font-size: 3.5rem;
+        text-transform: uppercase;
     }
     p:nth-of-type(2) {
         font-size: 3.0rem;
@@ -388,14 +403,24 @@ button.submit {
     button {
         font-size: 2.0rem;
         padding: 10px 20px;
-        margin-top: 5px;
+        margin-top: 10px;
     }
 }
 
 #starBurst {
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    // position: absolute;
+    // top: -40px;
+    // bottom: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: white;
+    // height: 100%;
+    z-index: 30;
+    // background-image: url("../assets/starburst.png");
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-size: cover;
 }
 
 .numBox {
@@ -437,6 +462,12 @@ button.submit {
     // position: relative;
     // overflow: hidden;
 }
+
+// .outerButton {
+//     background-color: blueviolet;
+//     padding: 5px;
+//     border-radius: 5px;
+// }
 
 
 button::before {

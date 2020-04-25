@@ -233,7 +233,10 @@ button {
   position: relative;
   overflow: hidden;
   background-color: #ffc905;
-  border: 4px solid black;
+  border: 4px solid blueviolet;
+  text-transform: uppercase;
+  text-shadow: none;
+  background-color: black;
 }
 
 .flexContainer h2, button {
@@ -253,12 +256,34 @@ canvas {
   z-index: 20;
 }
 
+.patternContainer {
+  max-width: 499px;
+  background-color: #d9098c;
+  position: relative;
+  margin: 0 auto;
+  background-image: url("https://www.transparenttextures.com/patterns/dimension.png");
+}
+
+.patternContainer:before {
+  content: "";
+  position: absolute;
+  top: -81px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/falling-money.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 header {
   height: 25vh;
-  padding: 10px 0;
-  background-color: #00adef;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 0, 0, 0)), to(#d9098c));
-  background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0), #d9098c);
+  padding: 20px 0;
+  position: relative;
+  z-index: 20;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#00adef), to(rgba(255, 255, 255, 0)));
+  background-image: linear-gradient(to bottom, #00adef, rgba(255, 255, 255, 0));
 }
 
 header .flexContainer {
@@ -268,9 +293,6 @@ header .flexContainer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   height: 100%;
 }
 
@@ -391,10 +413,10 @@ main {
 
 main {
   height: 75vh;
-  background-color: #d9098c;
   position: relative;
   overflow: hidden;
   padding-bottom: 50px;
+  z-index: 20;
 }
 
 main:after {
@@ -483,6 +505,11 @@ main .flexContainer {
 .luckyNumbersContainer h2,
 .yourNumbersContainer h2 {
   padding-bottom: 5px;
+  text-shadow: none;
+  background-color: black;
+  padding: 5px 5px;
+  border-radius: 5px;
+  text-transform: uppercase;
 }
 
 .lineOne {
@@ -637,6 +664,7 @@ button.submit {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  top: -46px;
 }
 
 .prizeAlert {
@@ -661,10 +689,12 @@ button.submit {
 
 .prizeAlert p {
   z-index: 1;
+  font-weight: bold;
 }
 
 .prizeAlert p:nth-of-type(1) {
   font-size: 3.5rem;
+  text-transform: uppercase;
 }
 
 .prizeAlert p:nth-of-type(2) {
@@ -675,13 +705,15 @@ button.submit {
 .prizeAlert button {
   font-size: 2.0rem;
   padding: 10px 20px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 #starBurst {
-  position: absolute;
-  top: 0;
-  bottom: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 30;
 }
 
 .numBox {
