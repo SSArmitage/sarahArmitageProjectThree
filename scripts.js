@@ -106,8 +106,9 @@ scratchCardApp.setUpCanvas = function () {
     let canvasNodeList = document.querySelectorAll("canvas")
 
     canvasNodeList.forEach((canvas) => {
-        console.log(canvas);
+        // console.log(canvas);
         
+        // ******** SET UP MOUSE EVENTS *******
         // let cont = document.getElementById("spots") // UI elements
         // let canvas = document.getElementById("canvas")
         // let alpha = document.getElementById("alpha")
@@ -116,7 +117,7 @@ scratchCardApp.setUpCanvas = function () {
         let isDown = false // defaults
         let color = "blueviolet";
         const audio = $("#scratchingSound")["0"]
-        console.log(audio);
+        // console.log(audio);
         
 
         // set up color palette using a custom "Spot" object
@@ -187,6 +188,62 @@ scratchCardApp.setUpCanvas = function () {
 
             ctx.restore();
         };
+
+        // ****** SET UP TOUCH EVENTS (FOR MOBILE/TABLET) *******
+        // use the touch events to trigger their mouse event counterparts and do the appropriate conversions(touch position to mouse position, etc)
+        canvas.addEventListener("touchstart", function (e) {
+            console.log(`touching`);
+
+            // mousePos = getTouchPos(canvas, e);
+            var touch = e.touches[0];
+            var mouseEvent = new MouseEvent("mousedown", {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }, false);
+
+        canvas.addEventListener("touchend", function (e) {
+            var mouseEvent = new MouseEvent("mouseup", {});
+            canvas.dispatchEvent(mouseEvent);
+        }, false);
+
+        canvas.addEventListener("touchmove", function (e) {
+            var touch = e.touches[0];
+            var mouseEvent = new MouseEvent("mousemove", {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            canvas.dispatchEvent(mouseEvent);
+        }, false);
+
+        // Get the position of a touch relative to the canvas
+        // function getTouchPos(canvasDom, touchEvent) {
+        //     var rect = canvasDom.getBoundingClientRect();
+        //     return {
+        //         x: touchEvent.touches[0].clientX - rect.left,
+        //         y: touchEvent.touches[0].clientY - rect.top
+        //     };
+        // }
+
+        // Prevent scrolling when touching the canvas
+        // document.body.addEventListener("touchstart", function (e) {
+        //     if (e.target == canvas) {
+        //         console.log(`helloooo`);
+                
+        //         e.preventDefault();
+        //     }
+        // }, false);
+        // document.body.addEventListener("touchend", function (e) {
+        //     if (e.target == canvas) {
+        //         e.preventDefault();
+        //     }
+        // }, false);
+        // document.body.addEventListener("touchmove", function (e) {
+        //     if (e.target == canvas) {
+        //         e.preventDefault();
+        //     }
+        // }, false);
     })
 }
 
@@ -264,14 +321,14 @@ scratchCardApp.events = function() {
     //     $(this).addClass('scratched');
     // })
 
-    $('.gridDiv').on('mouseover', function () {
-        // console.log(this);
-        // console.log(event);
+    // $('.gridDiv').on('mouseover', function () {
+    //     // console.log(this);
+    //     // console.log(event);
         
-        $(this).addClass('notVisible')
-        const sibs = $(this).siblings()
-        // console.log(sibs);
-    })
+    //     $(this).addClass('notVisible')
+    //     const sibs = $(this).siblings()
+    //     // console.log(sibs);
+    // })
 
     // click on SUBMIT CARD BUTTON
     // checks to see how many numbers matched, and informs user of the total amount won
