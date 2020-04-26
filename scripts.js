@@ -232,15 +232,22 @@ scratchCardApp.setUpCanvas = function () {
         document.body.addEventListener("touchstart", function (event) {
             if (event.target == canvas) {
                 // console.log(`helloooo`);
-                scratchCardApp.bodyEl.toggleClass("stopScroll")
+                // scratchCardApp.bodyEl.toggleClass("stopScroll")
                 // event.preventDefault();
+                // console.log(this);
+
+                // disable body scroll 
+                bodyScrollLock.disableBodyScroll(this);
             }
         }, false);
         document.body.addEventListener("touchend", function (event) {
             if (event.target == canvas) {
                 // console.log(`helloooo`);
-                scratchCardApp.bodyEl.toggleClass("stopScroll")
+                // scratchCardApp.bodyEl.toggleClass("stopScroll")
                 // event.preventDefault();
+
+                // enable body scroll 
+                bodyScrollLock.enableBodyScroll(this);
             }
         }, false);
     })
