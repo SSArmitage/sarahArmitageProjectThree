@@ -232,7 +232,7 @@ scratchCardApp.setUpCanvas = function () {
         document.body.addEventListener("touchstart", function (event) {
             if (event.target == canvas) {
                 // console.log(`helloooo`);
-                scratchCardApp.bodyEl.toggleClass("stopScroll")
+                scratchCardApp.bodyEl.addClass("stopScroll")
                 // event.preventDefault();
                 // console.log(this);
 
@@ -246,7 +246,22 @@ scratchCardApp.setUpCanvas = function () {
                 // setTimeout(() => {
                 //     scratchCardApp.bodyEl.toggleClass("stopScroll")
                 // }, 2000);
-                scratchCardApp.bodyEl.toggleClass("stopScroll")
+                // scratchCardApp.bodyEl.toggleClass("stopScroll")
+                scratchCardApp.bodyEl.removeClass("stopScroll")
+                // event.preventDefault();
+
+                // enable body scroll 
+                // bodyScrollLock.enableBodyScroll(this);
+            }
+        }, false);
+
+        document.body.addEventListener("touchmove", function (event) {
+            if (event.target == canvas) {
+                // console.log(`helloooo`);
+                // setTimeout(() => {
+                //     scratchCardApp.bodyEl.toggleClass("stopScroll")
+                // }, 2000);
+                scratchCardApp.bodyEl.addClass("stopScroll")
                 // event.preventDefault();
 
                 // enable body scroll 
