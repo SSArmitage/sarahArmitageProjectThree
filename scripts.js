@@ -159,7 +159,7 @@ scratchCardApp.setUpCanvas = function () {
             isDown = true
             // When the mouse is down, play the audio file to simulate scratching sound
             // the audio file has no sound for the first second or so, start the file 2 seconds in
-            audio.currentTime = 2
+            audio.currentTime = 3.2
             // the audio file is a bit fast, slow down the scratching sound a bit
             audio.playbackRate = 0.7
             audio.play()
@@ -232,22 +232,25 @@ scratchCardApp.setUpCanvas = function () {
         document.body.addEventListener("touchstart", function (event) {
             if (event.target == canvas) {
                 // console.log(`helloooo`);
-                // scratchCardApp.bodyEl.toggleClass("stopScroll")
+                scratchCardApp.bodyEl.toggleClass("stopScroll")
                 // event.preventDefault();
                 // console.log(this);
 
                 // disable body scroll 
-                bodyScrollLock.disableBodyScroll(this);
+                // bodyScrollLock.disableBodyScroll(this);
             }
         }, false);
         document.body.addEventListener("touchend", function (event) {
             if (event.target == canvas) {
                 // console.log(`helloooo`);
+                setTimeout(() => {
+                    scratchCardApp.bodyEl.toggleClass("stopScroll")
+                }, 2000);
                 // scratchCardApp.bodyEl.toggleClass("stopScroll")
                 // event.preventDefault();
 
                 // enable body scroll 
-                bodyScrollLock.enableBodyScroll(this);
+                // bodyScrollLock.enableBodyScroll(this);
             }
         }, false);
     })
