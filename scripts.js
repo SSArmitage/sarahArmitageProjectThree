@@ -243,10 +243,10 @@ scratchCardApp.setUpCanvas = function () {
         document.body.addEventListener("touchend", function (event) {
             if (event.target == canvas) {
                 // console.log(`helloooo`);
-                setTimeout(() => {
-                    scratchCardApp.bodyEl.toggleClass("stopScroll")
-                }, 2000);
-                // scratchCardApp.bodyEl.toggleClass("stopScroll")
+                // setTimeout(() => {
+                //     scratchCardApp.bodyEl.toggleClass("stopScroll")
+                // }, 2000);
+                scratchCardApp.bodyEl.toggleClass("stopScroll")
                 // event.preventDefault();
 
                 // enable body scroll 
