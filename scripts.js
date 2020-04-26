@@ -158,7 +158,7 @@ scratchCardApp.setUpCanvas = function () {
         canvas.onmousedown = function () {
             isDown = true
             // When the mouse is down, play the audio file to simulate scratching sound
-            // the audio file has no sound for the first second or so, start the file 2 seconds in
+            // the audio file has no sound for the first second or so, start the file >2 seconds in
             audio.currentTime = 3.2
             // the audio file is a bit fast, slow down the scratching sound a bit
             audio.playbackRate = 0.7
@@ -248,7 +248,7 @@ scratchCardApp.setUpCanvas = function () {
                 // }, 2000);
                 // scratchCardApp.bodyEl.toggleClass("stopScroll")
                 scratchCardApp.bodyEl.removeClass("stopScroll")
-                // event.preventDefault();
+                event.preventDefault();
 
                 // enable body scroll 
                 // bodyScrollLock.enableBodyScroll(this);
