@@ -229,24 +229,18 @@ scratchCardApp.setUpCanvas = function () {
         // }
 
         // Prevent page scrolling when touching the canvas
-        
-        
-        document.body.addEventListener("touchstart", function (e) {
-            if (e.target == canvas) {
-                console.log(`helloooo`);
-                scratchCardApp.bodyEl.addClass("stopScroll")
-                e.preventDefault();
+        document.body.addEventListener("touchstart", function (event) {
+            if (event.target == canvas) {
+                // console.log(`helloooo`);
+                scratchCardApp.bodyEl.toggleClass("stopScroll")
+                // event.preventDefault();
             }
         }, false);
-        document.body.addEventListener("touchend", function (e) {
-            if (e.target == canvas) {
-                scratchCardApp.bodyEl.removeClass("sropScroll")
-                e.preventDefault();
-            }
-        }, false);
-        document.body.addEventListener("touchmove", function (e) {
-            if (e.target == canvas) {
-                e.preventDefault();
+        document.body.addEventListener("touchend", function (event) {
+            if (event.target == canvas) {
+                // console.log(`helloooo`);
+                scratchCardApp.bodyEl.toggleClass("stopScroll")
+                // event.preventDefault();
             }
         }, false);
     })
