@@ -14,7 +14,7 @@
 
 // ***stretch goals*** 
 // => ☑️coin cursor
-// => animating scratch 
+// => ☑️animating scratch
 // => additional games & keeps track of accumulated prize
 // => add additional bonus game to card: three boxes where the user scratches and has to find 3 identical symbol
 // => when prize amount is displayed to user, have coins fall top->bottom accross the screen
@@ -48,7 +48,6 @@ scratchCardApp.gamePrizeAmount = 0;
 scratchCardApp.finalGamePrizeAmount;
 scratchCardApp.buttonDisabled = false
 scratchCardApp.bodyEl = $("body")
-// console.log(scratchCardApp.bodyEl);
 
 // generate random numbers between 1-20 (number on scratch boxes)
 scratchCardApp.generateRandomNumber = function() {
@@ -97,57 +96,29 @@ scratchCardApp.assignRandomNumber = function() {
             <canvas width=80 height=80></canvas>
              <div id="spots"></div>
         `);
-    }  
+    } 
+    // After the canvas elements are added to the DOM, call the following function
     scratchCardApp.setUpCanvas()
-    // setTimeout(() => {
-    //     scratchCardApp.setUpCanvas()
-    // }, 400);
 }
 
+// This function is called after the canvas elements are added to the DOM, sets up the canvas event listeners
 scratchCardApp.setUpCanvas = function () {
     let canvasNodeList = document.querySelectorAll("canvas")
 
     canvasNodeList.forEach((canvas) => {
-        // console.log(canvas);
-        
+
         // ******** SET UP MOUSE EVENTS *******
-        // let cont = document.getElementById("spots") // UI elements
-        // let canvas = document.getElementById("canvas")
-        // let alpha = document.getElementById("alpha")
-        // let modes = document.getElementById("modes")
         let ctx = canvas.getContext("2d")
         let isDown = false // defaults
         let color = "blueviolet";
         const audio = $("#scratchingSound")["0"]
-        // console.log(audio);
-        
-
-        // set up color palette using a custom "Spot" object
-        // This will use a callback function when it is clicked, to
-        // change current color
-        // function Spot(color, cont, callback) {
-        //     var div = document.createElement("div");
-        //     div.style.cssText = "width:50px;height:50px;border:1px solid #000;margin:0 1px 1px 0;background:" + color;
-        //     div.onclick = function () {
-        //         callback(color)
-        //     };
-        //     cont.appendChild(div);
-        // }
-
-        // add some spot colors to our palette container
-        // new Spot(color, cont, setColor);
-
-        // this will set current fill style based on spot clicked
-        // function setColor(c) {
-        //     ctx.fillStyle = c
-        // }
 
         // setup defaults
         ctx.fillStyle = color;
         ctx.globalAlpha = 1;
 
         // create a rectangle using canvas functions, not CSS
-        // background color.
+        // background color
         const createRect = (ctx, width, height) => {
             ctx.fillRect(0, 0, width, height)
         }
@@ -155,7 +126,7 @@ scratchCardApp.setUpCanvas = function () {
         createRect(ctx, 300, 300)
 
         // events
-        canvas.onmousedown = function () {
+        canvas.addEventListener("mousedown", function() {
             isDown = true
             // When the mouse is down, play the audio file to simulate scratching sound
             // the audio file has no sound for the first second or so, start the file >2 seconds in
@@ -165,20 +136,20 @@ scratchCardApp.setUpCanvas = function () {
             audio.play()
             // tag the box as scratched
             $(this).addClass('scratched');
-        };
+        })
 
-        canvas.onmouseup = function () {
+        canvas.addEventListener("mouseup", function() {
             isDown = false
             // When the mouse is back up, stop the audio file 
             audio.pause()
-        };
-        canvas.onmousemove = function (e) {
+        })
+
+        canvas.addEventListener("mousemove", function() {
             if (!isDown) return;
             var r = canvas.getBoundingClientRect(),
-                x = e.clientX - r.left,
-                y = e.clientY - r.top;
+                x = event.clientX - r.left,
+                y = event.clientY - r.top;
 
-            // you needed a bit more code here:
             ctx.fillStyle = "rgba(255, 255, 255, 0.5)"
 
             ctx.save();
@@ -189,88 +160,58 @@ scratchCardApp.setUpCanvas = function () {
             ctx.fill();
 
             ctx.restore();
-        };
+        })
 
         // ****** SET UP TOUCH EVENTS (FOR MOBILE/TABLET) *******
-        // use the touch events to trigger their mouse event counterparts and do the appropriate conversions(touch position to mouse position, etc)
-        canvas.addEventListener("touchstart", function (e) {
-            console.log(`touching`);
+        // use the touch events to trigger their mouse event counterparts and do the appropriate conversions (touch position to mouse position, etc)
+        // using event dispatching
+        canvas.addEventListener("touchstart", function (event) {
 
-            // mousePos = getTouchPos(canvas, e);
-            var touch = e.touches[0];
-            var mouseEvent = new MouseEvent("mousedown", {
+            let touch = event.touches[0];
+            let mouseEvent = new MouseEvent("mousedown", {
                 clientX: touch.clientX,
                 clientY: touch.clientY
             });
             canvas.dispatchEvent(mouseEvent);
         }, false);
 
-        canvas.addEventListener("touchend", function (e) {
-            var mouseEvent = new MouseEvent("mouseup", {});
+        canvas.addEventListener("touchend", function () {
+            let mouseEvent = new MouseEvent("mouseup", {});
             canvas.dispatchEvent(mouseEvent);
         }, false);
 
-        canvas.addEventListener("touchmove", function (e) {
-            var touch = e.touches[0];
-            var mouseEvent = new MouseEvent("mousemove", {
+        canvas.addEventListener("touchmove", function (event) {
+            let touch = event.touches[0];
+            let mouseEvent = new MouseEvent("mousemove", {
                 clientX: touch.clientX,
                 clientY: touch.clientY
             });
             canvas.dispatchEvent(mouseEvent);
         }, false);
-
-        // Get the position of a touch relative to the canvas
-        // function getTouchPos(canvasDom, touchEvent) {
-        //     var rect = canvasDom.getBoundingClientRect();
-        //     return {
-        //         x: touchEvent.touches[0].clientX - rect.left,
-        //         y: touchEvent.touches[0].clientY - rect.top
-        //     };
-        // }
 
         // Prevent page scrolling when touching the canvas
         document.body.addEventListener("touchstart", function (event) {
             if (event.target == canvas) {
-                // console.log(`helloooo`);
                 scratchCardApp.bodyEl.addClass("stopScroll")
-                // event.preventDefault();
-                // console.log(this);
-
-                // disable body scroll 
-                // bodyScrollLock.disableBodyScroll(this);
             }
         }, false);
+
         document.body.addEventListener("touchend", function (event) {
             if (event.target == canvas) {
-                // console.log(`helloooo`);
-                // setTimeout(() => {
-                //     scratchCardApp.bodyEl.toggleClass("stopScroll")
-                // }, 2000);
-                // scratchCardApp.bodyEl.toggleClass("stopScroll")
                 scratchCardApp.bodyEl.removeClass("stopScroll")
                 event.preventDefault();
-
-                // enable body scroll 
-                // bodyScrollLock.enableBodyScroll(this);
             }
         }, false);
 
         document.body.addEventListener("touchmove", function (event) {
             if (event.target == canvas) {
-                // console.log(`helloooo`);
-                // setTimeout(() => {
-                //     scratchCardApp.bodyEl.toggleClass("stopScroll")
-                // }, 2000);
                 scratchCardApp.bodyEl.addClass("stopScroll")
-                // event.preventDefault();
-
-                // enable body scroll 
-                // bodyScrollLock.enableBodyScroll(this);
             }
         }, false);
     })
 }
 
+// this function is called when the "submit card" button is clicked
 // determining the prizeAmountWon for this game
 scratchCardApp.prizeAmountWon = function () {
     // map over the prizeAmountArray (all the randomly chosen prize amounts for this instance of the game) => remove the $ from the prize amounts, convert the string into a number, and then return in a new array newPrizeArray
@@ -291,6 +232,7 @@ scratchCardApp.prizeAmountWon = function () {
     scratchCardApp.finalGamePrizeAmount = `$${scratchCardApp.gamePrizeAmount.toString()}`;
 }
 
+// this function is called when the "submit card" button is clicked
 // display prize screen to alert user of the amount won during this game
 scratchCardApp.displayPrizeScreen = function() {
     // winner card
@@ -319,17 +261,11 @@ scratchCardApp.displayPrizeScreen = function() {
     }
 }
 
+// this function is called when the "submit card" button is clicked, it will hide the button using visibility: hidden
+// *** still need to remove the css shine with the button ***
 scratchCardApp.submitButtonToggle = function() {
     $('.submit').toggleClass('hide');
-    // $('.buttonContainer').toggleClass('hide');
 }
-
-// add the scratch box covers
-// for (let x=0; x<300; x++) {
-//     $('.scratchBoxCover').append(`
-//     <div class="gridDiv" id="${x}"></div>
-//     `)
-// }
 
 // function that contains all the events to listen for
 scratchCardApp.events = function() {
@@ -340,26 +276,11 @@ scratchCardApp.events = function() {
         $('.hamMenu').toggleClass('openMenu');
     })
 
-    // click on SCRATCH BOX
-    // $('.numBox').on('click','.scratchBoxCover', function() {
-    //     $(this).addClass('scratched');
-    // })
-
-    // $('.gridDiv').on('mouseover', function () {
-    //     // console.log(this);
-    //     // console.log(event);
-        
-    //     $(this).addClass('notVisible')
-    //     const sibs = $(this).siblings()
-    //     // console.log(sibs);
-    // })
-
     // click on SUBMIT CARD BUTTON
     // checks to see how many numbers matched, and informs user of the total amount won
     $('.submit').on('click', function() {
         // first check to see if all the boxes have been scratched
         const canvasArray = Array.from($("canvas"))
-        console.log(canvasArray);
         let counter = 0;
         canvasArray.some((canvas) => {
             if (canvas.classList.length === 0) {
@@ -381,10 +302,6 @@ scratchCardApp.events = function() {
             // if the canvas element has an empty class list, exit the function (b/c at least one box has not been scratched, and the card cannot be submitted)
             return canvas.classList.length === 0
         })
-
-        // scratchCardApp.prizeAmountWon();
-        // scratchCardApp.displayPrizeScreen();
-        // scratchCardApp.submitButtonToggle();
     })
 
     // click on RESET BUTTON
@@ -419,5 +336,3 @@ scratchCardApp.init = function() {
 $(document).ready(function () {
     scratchCardApp.init();
 });
-
-// -----------------------------------
