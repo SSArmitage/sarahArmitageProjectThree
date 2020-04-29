@@ -23,7 +23,7 @@
                         win the prize asscoiated with the matching <strong>YOUR NUMBER</strong> box.</li>
                     <li>If you match multiple <strong>YOUR NUMBERS</strong> to the <strong>LUCKY NUMBERS</strong>, the
                         associated prizes are combined.</li>
-                    <li>If you win $1000 or more on one card, watch the money pour!</li>
+                    <li>If you win $100 or more on one card, watch the money pour!</li>
                 </ul>
             </div>
         </div>
@@ -44,8 +44,13 @@
         <main>
             <!-- the "rain" divs will be populated with falling coins when the user wins >= $100 (prize celebration) -->
             <!-- using aria-hidden here to hide the empty rain divs from assistive technologies (extraneous content) -->
-            <div class="rain" aria-hidden="true"></div> 
-            <div class="rainB" aria-hidden="true"></div>
+            <!-- <div class="rain" aria-hidden="true"></div> 
+            <div class="rainB" aria-hidden="true"></div> -->
+            <div class="prizeAlertContainer behind">
+                <div class="rain" aria-hidden="true"></div> 
+                <div class="rainB" aria-hidden="true"></div>
+            </div>
+
             <div class="wrapper flexContainer gameContainer">
                 <!-- <div class="rain"></div> -->
                 <div class="luckyNumbersContainer">
@@ -96,7 +101,7 @@
             <!-- FOOTER -->
             <footer>
                 <div class="wrapper flexContainer">
-                    <p>Copyright © Sarah Armitage 2019</p>
+                    <p>Copyright © Sarah Armitage 2020</p>
                 </div>
             </footer>
         </div>

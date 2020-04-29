@@ -237,7 +237,6 @@ scratchCardApp.prizeAmountWon = function () {
             // prizeAmount started at 0, add the matching numbers' prize value to the prizeAmount variable (able to do this b/c the yourNumbersArray[i] and numberPrizeArray[i] correspond to the same ith scratch box)
             scratchCardApp.gamePrizeAmount += numberPrizeArray[i];
         }
-        console.log(scratchCardApp.gamePrizeAmount);
     }
 
     // convert prizeAmount back to a string and add "$" to the front
@@ -247,8 +246,8 @@ scratchCardApp.prizeAmountWon = function () {
     scratchCardApp.prizeCounterValue += scratchCardApp.gamePrizeAmount
     // update the counter on the page
     scratchCardApp.updatePrizeCounter(scratchCardApp.prizeCounterValue);
-    // if the current prize won is $1000, gold coins fall from top of screen with "ta da" sound
-    if (scratchCardApp.gamePrizeAmount >= 1000) {
+    // if the current prize won is >= $100, gold coins fall from top of screen with "ta da" sound
+    if (scratchCardApp.gamePrizeAmount >= 100) {
         scratchCardApp.prizeCelebration()
     }
 }
@@ -258,7 +257,7 @@ scratchCardApp.randomRange = function(minNum, maxNum) {
     return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
 }
 
-// 
+// This function creates the falling coins animation for when the user wins a prize >= $100
 scratchCardApp.prizeCelebration = function() {
 
     const audioCoins = $("#fallingCoinsSound")["0"]
@@ -277,7 +276,7 @@ scratchCardApp.prizeCelebration = function() {
     setTimeout(() => {
         audioCoins.pause()
         audioWinner.pause()
-    }, 4260);
+    }, 3250);
 
     // the number of falling coins for the animation
     const numOfDrops = 158;
@@ -293,7 +292,7 @@ scratchCardApp.prizeCelebration = function() {
         // the min is -100 becasue the coins need to be placed sufficiently high enough above the top of the view port, so that they are not visible before/after the animation
         const dropTop = scratchCardApp.randomRange(-1000, -100)
 
-        $('.rain').append(`<div class="drop" id="drop${i}"></div>`);
+        $('.rain').append(`<div class="drop" id="drop${i}"><img src="./assets/coinCursor.png"/></div>`);
         $(`#drop${i}`).css('left', dropLeft);
         $(`#drop${i}`).css('top', dropTop);
     }
@@ -302,7 +301,7 @@ scratchCardApp.prizeCelebration = function() {
         const dropLeft = scratchCardApp.randomRange(0, 499);
         const dropTop = scratchCardApp.randomRange(-1000, -100)
 
-        $('.rainB').append(`<div class="dropB" id="dropB${i}"></div>`);
+        $('.rainB').append(`<div class="dropB" id="dropB${i}"><img src="./assets/coinCursor.png"/></div>`);
         $(`#dropB${i}`).css('left', dropLeft);
         $(`#dropB${i}`).css('top', dropTop);
     }
@@ -311,28 +310,26 @@ scratchCardApp.prizeCelebration = function() {
 // this function is called when the "submit card" button is clicked
 // display prize screen to alert user of the amount won during this game
 scratchCardApp.displayPrizeScreen = function() {
+    // 
+    $('.prizeAlertContainer').toggleClass('behind')
     // winner card
     if (scratchCardApp.finalGamePrizeAmount !== '$0') {
-        $('main .gameContainer').append(`
-        <div class="prizeAlertContainer">
+        $('main .prizeAlertContainer').append(`
             <div class="prizeAlert" id="starBurst">
                 <p>Winner!</p>
                 <p>${scratchCardApp.finalGamePrizeAmount}</p>
                 <button class="reset outline">New Card</button>
-            </div>
-        </div>    
+            </div>  
         `); 
     // non-winner card
     } else {
-        $('main .gameContainer').append(`
-        <div class="prizeAlertContainer">
+        $('main .prizeAlertContainer').append(`
             <div class="prizeAlert" id="starBurst">
                 <p>Non-winner</p>
                 <div class="buttonContainer">
                     <button class="reset outline">New Card</button>
                 </div>
-            </div>
-        </div>    
+            </div>   
         `); 
     }
 }
@@ -388,9 +385,9 @@ scratchCardApp.events = function() {
 
     // click on RESET BUTTON
     // resets the card
-    $('main .flexContainer').on('click', '.reset', function() {
+    $('main .prizeAlertContainer').on('click', '.reset', function() {
         // remove the prize alert
-        $('.prizeAlertContainer').remove(); 
+        $('.prizeAlert').remove(); 
         // reset variables
         scratchCardApp.luckyNumbersArray = [];
         scratchCardApp.yourNumbersArray = [];
@@ -409,6 +406,8 @@ scratchCardApp.events = function() {
         // if user clicks "new card" before the falling coins have finished, need to remove the sound as well
         const audioCoins = $("#fallingCoinsSound")["0"]
         audioCoins.pause()
+        // send the prizeAlertContainer to the back again
+        $('.prizeAlertContainer').toggleClass('behind')
     })
 }
 
