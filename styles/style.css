@@ -291,14 +291,14 @@ canvas {
 }
 
 .stopScroll {
-  position: fixed;
+  overflow: hidden;
 }
 
 header {
   height: 20vh;
   padding: 20px 0;
   position: relative;
-  z-index: 20;
+  z-index: 40;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#00adef), to(rgba(255, 255, 255, 0)));
   background-image: linear-gradient(to bottom, #00adef, rgba(255, 255, 255, 0));
 }
@@ -717,312 +717,6 @@ button:hover::before {
   left: 100px;
 }
 
-.coinContainer {
-  width: 100%;
-  height: calc(100vh + 150px);
-  position: absolute;
-  top: -150px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
-}
-
-.rainCoin {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  z-index: 30;
-}
-
-.coin0 {
-  -webkit-animation: rain0 2s ease 0s 10;
-          animation: rain0 2s ease 0s 10;
-}
-
-.coin1 {
-  -webkit-animation: rain1 2s ease 1s 10;
-          animation: rain1 2s ease 1s 10;
-}
-
-.coin2 {
-  -webkit-animation: rain2 2s ease 0s 10;
-          animation: rain2 2s ease 0s 10;
-}
-
-.coin3 {
-  -webkit-animation: rain3 2s ease 1s 10;
-          animation: rain3 2s ease 1s 10;
-}
-
-.coin4 {
-  -webkit-animation: rain4 2s ease 0s 10;
-          animation: rain4 2s ease 0s 10;
-}
-
-.coin5 {
-  -webkit-animation: rain5 2s ease 1s 10;
-          animation: rain5 2s ease 1s 10;
-}
-
-.coin6 {
-  -webkit-animation: rain6 2s ease 0s 10;
-          animation: rain6 2s ease 0s 10;
-}
-
-.coin7 {
-  -webkit-animation: rain7 2s ease 1s 10;
-          animation: rain7 2s ease 1s 10;
-}
-
-.coin8 {
-  -webkit-animation: rain8 2s ease 0s 10;
-          animation: rain8 2s ease 0s 10;
-}
-
-.coin9 {
-  -webkit-animation: rain9 2s ease 2s 10;
-          animation: rain9 2s ease 2s 10;
-}
-
-.coin10 {
-  -webkit-animation: rain10 2s ease 0s 10;
-          animation: rain10 2s ease 0s 10;
-}
-
-.coin11 {
-  -webkit-animation: rain11 2s ease 2s 10;
-          animation: rain11 2s ease 2s 10;
-}
-
-.coin12 {
-  -webkit-animation: rain12 2s ease 0s 10;
-          animation: rain12 2s ease 0s 10;
-}
-
-.coin13 {
-  -webkit-animation: rain13 2s ease 2s 10;
-          animation: rain13 2s ease 2s 10;
-}
-
-.coin14 {
-  -webkit-animation: rain14 2s ease 0s 10;
-          animation: rain14 2s ease 0s 10;
-}
-
-@-webkit-keyframes rain0 {
-  100% {
-    -webkit-transform: translateX(0) translateY(100vh);
-            transform: translateX(0) translateY(100vh);
-  }
-}
-
-@keyframes rain0 {
-  100% {
-    -webkit-transform: translateX(0) translateY(100vh);
-            transform: translateX(0) translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain1 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain1 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain2 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain2 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain3 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain3 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain4 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain4 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain5 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain5 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain6 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain6 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain7 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain7 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain8 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain8 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain9 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain9 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain10 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain10 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain11 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain11 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain12 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain12 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain13 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain13 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@-webkit-keyframes rain14 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
-@keyframes rain14 {
-  100% {
-    -webkit-transform: translateY(100vh);
-            transform: translateY(100vh);
-  }
-}
-
 .rain, .rainB {
   position: absolute;
   left: 0;
@@ -1063,15 +757,15 @@ button:hover::before {
 
 @-webkit-keyframes fall {
   100% {
-    -webkit-transform: translateY(200vh);
-            transform: translateY(200vh);
+    -webkit-transform: translateY(300vh);
+            transform: translateY(300vh);
   }
 }
 
 @keyframes fall {
   100% {
-    -webkit-transform: translateY(200vh);
-            transform: translateY(200vh);
+    -webkit-transform: translateY(300vh);
+            transform: translateY(300vh);
   }
 }
 

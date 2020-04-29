@@ -176,11 +176,15 @@ scratchCardApp.setUpCanvas = function () {
                 clientY: touch.clientY
             });
             canvas.dispatchEvent(mouseEvent);
+
+            scratchCardApp.bodyEl.addClass("stopScroll")
         }, false);
 
         canvas.addEventListener("touchend", function () {
             let mouseEvent = new MouseEvent("mouseup", {});
             canvas.dispatchEvent(mouseEvent);
+            
+            scratchCardApp.bodyEl.removeClass("stopScroll")
         }, false);
 
         canvas.addEventListener("touchmove", function (event) {
@@ -193,24 +197,24 @@ scratchCardApp.setUpCanvas = function () {
         }, false);
 
         // Prevent page scrolling when touching the canvas
-        document.body.addEventListener("touchstart", function (event) {
-            if (event.target == canvas) {
-                scratchCardApp.bodyEl.addClass("stopScroll")
-            }
-        }, false);
+        // document.body.addEventListener("touchstart", function (event) {
+        //     if (event.target == canvas) {
+        //         scratchCardApp.bodyEl.addClass("stopScroll")
+        //     }
+        // }, false);
 
-        document.body.addEventListener("touchend", function (event) {
-            if (event.target == canvas) {
-                scratchCardApp.bodyEl.removeClass("stopScroll")
-                event.preventDefault();
-            }
-        }, false);
+        // document.body.addEventListener("touchend", function (event) {
+        //     if (event.target == canvas) {
+        //         scratchCardApp.bodyEl.removeClass("stopScroll")
+        //         event.preventDefault();
+        //     }
+        // }, false);
 
-        document.body.addEventListener("touchmove", function (event) {
-            if (event.target == canvas) {
-                scratchCardApp.bodyEl.addClass("stopScroll")
-            }
-        }, false);
+        // document.body.addEventListener("touchmove", function (event) {
+        //     if (event.target == canvas) {
+        //         scratchCardApp.bodyEl.addClass("stopScroll")
+        //     }
+        // }, false);
     })
 }
 
@@ -348,8 +352,6 @@ scratchCardApp.events = function() {
 
     // click on HAMBURGER MENU
     $('.fa-question').on('click', function() {
-        console.log(`hiiii`);
-        
         $('.hamMenu').toggleClass('openMenu');
     })
 
