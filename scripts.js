@@ -271,7 +271,7 @@ scratchCardApp.prizeCelebration = function() {
     // wait 1s before starting the falling coins sound (gives the coins ~time to reach the bottom of the screen)
     setTimeout(() => {
         audioCoins.play()
-    }, 1000);
+    }, 500);
 
     // end the falling coins sound to coincide with the end of the falling coins animation
     setTimeout(() => {
