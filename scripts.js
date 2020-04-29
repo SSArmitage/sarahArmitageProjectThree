@@ -177,14 +177,18 @@ scratchCardApp.setUpCanvas = function () {
             });
             canvas.dispatchEvent(mouseEvent);
 
+             // when you initially touch the canvas, the body will have overflow:hidden added to prevent scrolling
             scratchCardApp.bodyEl.addClass("stopScroll")
         }, false);
 
         canvas.addEventListener("touchend", function () {
             let mouseEvent = new MouseEvent("mouseup", {});
             canvas.dispatchEvent(mouseEvent);
-            
-            scratchCardApp.bodyEl.removeClass("stopScroll")
+
+            // when you stop touching the canvas, the body will have overflow:hidden removed after a delay
+            setTimeout(() => {
+                scratchCardApp.bodyEl.removeClass("stopScroll") 
+            }, 1000);
         }, false);
 
         canvas.addEventListener("touchmove", function (event) {
@@ -194,6 +198,7 @@ scratchCardApp.setUpCanvas = function () {
                 clientY: touch.clientY
             });
             canvas.dispatchEvent(mouseEvent);
+            scratchCardApp.bodyEl.addClass("stopScroll")
         }, false);
 
         // Prevent page scrolling when touching the canvas
