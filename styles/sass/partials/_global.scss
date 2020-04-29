@@ -139,7 +139,8 @@ canvas {
 }
 
 .stopScroll {
-    position: fixed;
+    // position: fixed;
+    overflow: hidden;
 }
 
 

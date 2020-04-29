@@ -348,6 +348,8 @@ scratchCardApp.events = function() {
 
     // click on HAMBURGER MENU
     $('.fa-question').on('click', function() {
+        console.log(`hiiii`);
+        
         $('.hamMenu').toggleClass('openMenu');
     })
 
