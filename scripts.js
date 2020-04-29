@@ -185,10 +185,8 @@ scratchCardApp.setUpCanvas = function () {
             let mouseEvent = new MouseEvent("mouseup", {});
             canvas.dispatchEvent(mouseEvent);
 
-            // when you stop touching the canvas, the body will have overflow:hidden removed after a delay
-            setTimeout(() => {
-                scratchCardApp.bodyEl.removeClass("stopScroll") 
-            }, 1000);
+            // when you stop touching the canvas, the body will have overflow:hidden removed
+            scratchCardApp.bodyEl.removeClass("stopScroll")
         }, false);
 
         canvas.addEventListener("touchmove", function (event) {
