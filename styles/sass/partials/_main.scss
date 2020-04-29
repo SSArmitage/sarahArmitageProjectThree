@@ -1,5 +1,5 @@
 main {
-    height: 75vh;
+    height: 80vh;
     // height: 77vh;
     // background-color: $secondary;
     //  background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
@@ -7,30 +7,32 @@ main {
     // background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
     // background-image: url("https://www.transparenttextures.com/patterns/starring.png");
     // background-image: url("https://www.transparenttextures.com/patterns/triangles.png");
-    position: relative;
+    
+    // position: relative;
     overflow: hidden;
     padding-bottom: 50px;
     z-index: 20;
-    &:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        // width: 76vh;
-        // height: calc(100% + 10px);
-        background-image: url("../assets/floating-coins.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        // transform: rotate(-90deg);
-    }
+    // &:after {
+    //     content: "";
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 100%;
+    //     // width: 76vh;
+    //     // height: calc(100% + 10px);
+    //     background-image: url("../assets/floating-coins.png");
+    //     background-repeat: no-repeat;
+    //     background-size: cover;
+    //     background-position: center;
+    //     // transform: rotate(-90deg);
+    // }
 
     .flexContainer {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        // justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
         height: 100%;
         position: relative;
@@ -120,7 +122,7 @@ main {
 }
 
 .yourNumbersContainer {
-    margin-top: 10px;
+    margin-top: 20px;
     .boxContainer {
         flex-wrap: wrap;
     }
@@ -148,219 +150,6 @@ main {
 .notVisible {
     opacity: 0;
     border-radius: 50%;
-}
-
-.siblingRight {
-    position: relative;
-    background-color: none;
-    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
-    background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, rgba(138, 43, 226, 1) 60%);
-    transform: rotate(180deg);
-    // &:after {
-    //     content: '';
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 100%;
-    //     left: -4px;
-    //     border-radius: 50%;
-    //     background-color: $primary;
-    //     z-index: 5;
-    // }
-}
-
-.siblingRightTop {
-    position: relative;
-    background-color: none;
-    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
-    background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, rgba(138, 43, 226, 1) 40%);
-    transform: rotate(-90deg);
-    //    &:before {
-    //     content: '';
-    //     position: absolute;
-    //     width: 50%;
-    //     height: 8px;
-    //     top: -2px;
-    //     right: 3px;
-    //     // border-radius: 50%;
-    //     // background-color: $primary;
-    //     background-color: blueviolet;
-    //     transform: rotate(45deg)
-    //     // z-index: 5;
-    // }
-    // &:after {
-    //     content: '';
-    //     position: absolute;
-    //     width: 50%;
-    //     height: 8px;
-    //     top: -1px;
-    //     right: 3px;
-    //     // border-radius: 50%;
-    //     background-color: blueviolet;
-    //     // background-color: black;
-    //     transform: rotate(135deg)
-    //     // z-index: 5;
-    // }
-}
-
-.siblingLeftTop {
-    position: relative;
-    background-color: none;
-    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
-    background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, rgba(138, 43, 226, 1) 40%);
-    transform: rotate(180deg);
-    //    &:before {
-    //     content: '';
-    //     position: absolute;
-    //     width: 50%;
-    //     height: 8px;
-    //     top: -2px;
-    //     right: 3px;
-    //     // border-radius: 50%;
-    //     // background-color: $primary;
-    //     background-color: blueviolet;
-    //     transform: rotate(45deg)
-    //     // z-index: 5;
-    // }
-    // &:after {
-    //     content: '';
-    //     position: absolute;
-    //     width: 50%;
-    //     height: 8px;
-    //     top: -1px;
-    //     right: 3px;
-    //     // border-radius: 50%;
-    //     background-color: blueviolet;
-    //     // background-color: black;
-    //     transform: rotate(135deg)
-    //     // z-index: 5;
-    // }
-}
-
-.siblingLeft {
-    position: relative;
-    background-color: none;
-    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
-    background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, rgba(138, 43, 226, 1) 60%);
-    // &:after {
-    //     content: '';
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 100%;
-    //     right: -4px;
-    //     border-radius: 50%;
-    //     background-color: $primary;
-    //     z-index: 5;
-    // }
-}
-
-.siblingTop {
-    position: relative;
-    background-color: none;
-    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
-    background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, rgba(138, 43, 226, 1) 60%);
-    transform: rotate(90deg)
-    // &:after {
-    //     content: '';
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 100%;
-    //     bottom: -4px;
-    //     border-radius: 50%;
-    //     background-color: $primary;
-    //     z-index: 5;
-    // }
-}
-
-.siblingBottom {
-    position: relative;
-    background-color: none;
-    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
-    background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, rgba(138, 43, 226, 1) 60%);
-    transform: rotate(-90deg)
-    
-    // &:after {
-    //     content: '';
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 100%;
-    //     top: -4px;
-    //     border-radius: 50%;
-    //     background-color: $primary;
-    //     z-index: 5;
-    // }
-}
-
-.siblingRightBottom {
-    position: relative;
-    background-color: none;
-    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
-    background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, rgba(138, 43, 226, 1) 40%);
-    // transform: rotate(-135deg);
-    // &:before {
-    //     content: '';
-    //     position: absolute;
-    //     width: 50%;
-    //     height: 8px;
-    //     top: -2px;
-    //     right: 3px;
-    //     // border-radius: 50%;
-    //     // background-color: $primary;
-    //     background-color: blueviolet;
-    //     transform: rotate(45deg)
-    //     // z-index: 5;
-    // }
-    // &:after {
-    //     content: '';
-    //     position: absolute;
-    //     width: 50%;
-    //     height: 8px;
-    //     top: -1px;
-    //     right: 3px;
-    //     // border-radius: 50%;
-    //     background-color: blueviolet;
-    //     // background-color: black;
-    //     transform: rotate(135deg)
-    //     // z-index: 5;
-    // }
-}
-
-.siblingLeftBottom {
-    position: relative;
-    background-color: none;
-    // background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 50%, rgba(138, 43, 226, 0) 75%, rgba(138, 43, 226, 1) 75%);
-    background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, rgba(138, 43, 226, 1) 40%);
-    transform: rotate(90deg); 
-    //    &:before {
-    //     content: '';
-    //     position: absolute;
-    //     width: 50%;
-    //     height: 8px;
-    //     top: -2px;
-    //     right: 3px;
-    //     // border-radius: 50%;
-    //     // background-color: $primary;
-    //     background-color: blueviolet;
-    //     transform: rotate(45deg)
-    //     // z-index: 5;
-    // }
-    // &:after {
-    //     content: '';
-    //     position: absolute;
-    //     width: 50%;
-    //     height: 8px;
-    //     top: -1px;
-    //     right: 3px;
-    //     // border-radius: 50%;
-    //     background-color: blueviolet;
-    //     // background-color: black;
-    //     transform: rotate(135deg)
-    //     // z-index: 5;
-    // } 
-}
-
-.scratched {
-    // opacity: 0;
-    // z-index: 5
 }
 
 button.submit {
@@ -458,7 +247,7 @@ button.submit {
 
 .buttonContainer {
     border-radius: 5px;
-    margin-top: 10px;
+    margin-top: 30px;
     // position: relative;
     // overflow: hidden;
 }
@@ -484,4 +273,57 @@ button::before {
 
 button:hover::before {
     left: 100px;
+}
+
+// @mixin fontSize($sizeValue) {
+//   font-size: $sizeValue;
+//   color: blue;
+//   font-weight: bold;
+// }
+
+// @function getHorizontalPosition() {
+//     @return 
+// }
+
+// Falling coins animation ($1000 prize celebration)
+.rain, .rainB {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 20;
+}
+
+.drop {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url("../assets/coinCursor.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: 30;
+    animation: fall 2.63s linear 1;
+}
+
+.dropB {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-image: url("../assets/coinCursor.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    z-index: 30;
+    animation: fall 2.63s linear 1.2s 1;
+}
+
+@keyframes fall {
+    100% {
+        transform: translateY(300vh);
+    }
 }

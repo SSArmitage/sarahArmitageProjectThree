@@ -1,6 +1,6 @@
 // ------------ HAMBURGER MENU --------------
 main {
-    position: relative;
+    // position: relative;
 }
 
 .fa-question {
@@ -13,6 +13,7 @@ main {
     height: 100%;
     // margin-top: 20px;
     padding-top: 10px;
+    padding-right: 10px;
     position: relative;
     &:before {
         content: "";
@@ -29,8 +30,8 @@ main {
 
 .hamMenu {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 20vh;
+    bottom: 8vh;
     left: 0;
     right: 0;
     z-index: 40;

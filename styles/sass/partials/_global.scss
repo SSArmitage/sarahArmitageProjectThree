@@ -121,6 +121,21 @@ canvas {
         background-position: center;
         // transform: rotate(-90deg);
     }
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80vh;
+        // width: 76vh;
+        // height: calc(100% + 10px);
+        background-image: url("../assets/floating-coins.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        // transform: rotate(-90deg);
+    }
 }
 
 .stopScroll {

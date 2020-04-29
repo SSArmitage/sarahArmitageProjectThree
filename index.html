@@ -11,7 +11,22 @@
     <title>Scratch 'n Match</title>
 </head>
 <body>
+    <!-- this container is used to display layered background patterns -->
     <div class="patternContainer">
+        <!-- hamburger menu with game instructions -->
+        <div class=hamMenu>
+            <div class="instructionContainer">
+                <h2>How to Play</h2>
+                <ul>
+                    <li>Scratch <strong>LUCKY NUMBERS</strong> and <strong>YOUR NUMBERS</strong>.</li>
+                    <li>If you match any of <strong>YOUR NUMBERS</strong> to either of the <strong>LUCKY NUMBERS</strong>, you
+                        win the prize asscoiated with the matching <strong>YOUR NUMBER</strong> box.</li>
+                    <li>If you match multiple <strong>YOUR NUMBERS</strong> to the <strong>LUCKY NUMBERS</strong>, the
+                        associated prizes are combined.</li>
+                </ul>
+            </div>
+        </div>
+        <!-- end of hamburger menu -->
         <!-- HEADER -->
         <header>
             <div class="wrapper flexContainer">
@@ -19,26 +34,19 @@
                     <h1 class="outline">Scratch 'n <span class="lineBreak">Match</span></h1>
                 </div>
                 <div class="hamburgerIcon">
-                    <!-- <i class="fa fa-bars"></i> -->
                     <i class="fas fa-question"></i>
+                    <p class="prizeCounter">Total: $0</p>
                 </div>
             </div>
         </header>
         <!-- MAIN -->
         <main>
-            <!-- hamburger menu with game instructions -->
-            <div class=hamMenu>
-                <div class="instructionContainer">
-                    <h2>How to Play</h2>
-                    <ul>
-                        <li>Scratch <strong>LUCKY NUMBERS</strong> and <strong>YOUR NUMBERS</strong>.</li>
-                        <li>If you match any of <strong>YOUR NUMBERS</strong> to either of the <strong>LUCKY NUMBERS</strong>, you win the prize asscoiated with the matching <strong>YOUR NUMBER</strong> box.</li>
-                        <li>If you match multiple <strong>YOUR NUMBERS</strong> to the <strong>LUCKY NUMBERS</strong>, the associated prizes are combined.</li>
-                    </ul>
-                </div>
-            </div>
-    
+            <!-- the "rain" divs will be populated with falling coins when the user wins >= $100 (prize celebration) -->
+            <!-- using aria-hidden here to hide the empty rain divs from assistive technologies (extraneous content) -->
+            <div class="rain" aria-hidden="true"></div> 
+            <div class="rainB" aria-hidden="true"></div>
             <div class="wrapper flexContainer gameContainer">
+                <!-- <div class="rain"></div> -->
                 <div class="luckyNumbersContainer">
                     <h2 class="outline">Lucky Numbers</h2>
                     <div class="boxContainer">
@@ -93,9 +101,11 @@
         </div>
     </main>
 
-    <!-- SCRATCHING AUDIO -->
+    <!-- AUDIO -->
     <audio id="scratchingSound" src="sound/Scratching.wav"></audio>
-
+    <audio id="fallingCoinsSound" src="sound/falling-coins.wav"></audio>
+    <audio id="winnerSound" src="sound/TaDa.wav"></audio>
+    
     <!-- FOOTER
     <footer>
         <div class="wrapper flexContainer">

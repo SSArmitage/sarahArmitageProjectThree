@@ -37,7 +37,8 @@ scratchCardApp.prizeArray = [
     '$85',
     '$100',
     '$125',
-    '$200'
+    '$200',
+    '$1000'
 ]
 
 // initializing variables
@@ -46,22 +47,23 @@ scratchCardApp.yourNumbersArray = [];
 scratchCardApp.prizeAmountArray = [];
 scratchCardApp.gamePrizeAmount = 0;
 scratchCardApp.finalGamePrizeAmount;
-scratchCardApp.buttonDisabled = false
-scratchCardApp.bodyEl = $("body")
+scratchCardApp.buttonDisabled = false;
+scratchCardApp.bodyEl = $("body");
+scratchCardApp.prizeCounterValue = 0;
 
 // generate random numbers between 1-20 (number on scratch boxes)
 scratchCardApp.generateRandomNumber = function() {
     return Math.floor(Math.random() * 20) + 1;
 }
 
-// generate random numbers between 1-8 (index for prizeArray)
+// generate random numbers between 0-10 (index for prizeArray)
 scratchCardApp.generateRandomNumber2 = function () {
-    return Math.floor(Math.random() * 8) + 1;
+    return Math.floor(Math.random() * 11);
 }
 
 // assign random numbers & display in the scratch boxes
 scratchCardApp.assignRandomNumber = function() {
-    // assign LUCKY NUMBERS
+    // assign LUCKY NUMBERS (2 numbers)
     for (let i = 1; i <= 2; i++) {
         let randomNumber = scratchCardApp.generateRandomNumber();
         // check to see if the generated random number is already in the array, and if so, decrement i by 1 (ensures that the two LUCKY numbers are always different) 
@@ -77,7 +79,7 @@ scratchCardApp.assignRandomNumber = function() {
         }
     } 
     
-    // assign YOUR NUMBERS
+    // assign YOUR NUMBERS (6 numbers)
     for (let i = 3; i <=8; i++) {
         // generate random number to put in scratch box
         let randomNumber = scratchCardApp.generateRandomNumber();
@@ -86,6 +88,7 @@ scratchCardApp.assignRandomNumber = function() {
         // pick random prize to go in scratch box
         let randomPrizeIndex = scratchCardApp.generateRandomNumber2();
         let randomPrize = scratchCardApp.prizeArray[randomPrizeIndex];
+        
         // add random prize to the prizeAmountArray (array will be used to tally prize for matching numbers)
         scratchCardApp.prizeAmountArray.push(randomPrize);
         // display the random number and prize in the scratch box
@@ -94,16 +97,16 @@ scratchCardApp.assignRandomNumber = function() {
             <p class='ranNum'>${randomNumber}</p>
             <p class='ranPrize'>${randomPrize}</p>
             <canvas width=80 height=80></canvas>
-             <div id="spots"></div>
+            <div id="spots"></div>
         `);
     } 
-    // After the canvas elements are added to the DOM, call the following function
+    // After the canvas elements are added to the DOM, call the following function to set up event listeners
     scratchCardApp.setUpCanvas()
 }
 
 // This function is called after the canvas elements are added to the DOM, sets up the canvas event listeners
 scratchCardApp.setUpCanvas = function () {
-    let canvasNodeList = document.querySelectorAll("canvas")
+    const canvasNodeList = document.querySelectorAll("canvas")
 
     canvasNodeList.forEach((canvas) => {
 
@@ -227,9 +230,75 @@ scratchCardApp.prizeAmountWon = function () {
             // prizeAmount started at 0, add the matching numbers' prize value to the prizeAmount variable (able to do this b/c the yourNumbersArray[i] and numberPrizeArray[i] correspond to the same ith scratch box)
             scratchCardApp.gamePrizeAmount += numberPrizeArray[i];
         }
+        console.log(scratchCardApp.gamePrizeAmount);
     }
+
     // convert prizeAmount back to a string and add "$" to the front
     scratchCardApp.finalGamePrizeAmount = `$${scratchCardApp.gamePrizeAmount.toString()}`;
+
+    // Update the prize counter to get the total prize amount won
+    scratchCardApp.prizeCounterValue += scratchCardApp.gamePrizeAmount
+    // update the counter on the page
+    scratchCardApp.updatePrizeCounter(scratchCardApp.prizeCounterValue);
+    // if the current prize won is $1000, gold coins fall from top of screen with "ta da" sound
+    if (scratchCardApp.gamePrizeAmount >= 1000) {
+        scratchCardApp.prizeCelebration()
+    }
+}
+
+// Generate random number within a range
+scratchCardApp.randomRange = function(minNum, maxNum) {
+    return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+}
+
+// 
+scratchCardApp.prizeCelebration = function() {
+
+    const audioCoins = $("#fallingCoinsSound")["0"]
+    const audioWinner = $("#winnerSound")["0"]
+    audioWinner.play()
+    
+    // the audio file is a bit slow, speed up the scratching sound x2
+    audioCoins.playbackRate = 2.0
+
+    // wait 1s before starting the falling coins sound (gives the coins ~time to reach the bottom of the screen)
+    setTimeout(() => {
+        audioCoins.play()
+    }, 1000);
+
+    // end the falling coins sound to coincide with the end of the falling coins animation
+    setTimeout(() => {
+        audioCoins.pause()
+        audioWinner.pause()
+    }, 4260);
+
+    // the number of falling coins for the animation
+    const numOfDrops = 158;
+    // const viewportHeight =  window.innerHeight
+    // console.log(viewportHeight);
+    
+    // assign each of the falling coins a random starting position, and append them to the page (they will be placed above the viewport and will fall to the bottom/100vh)
+    // done twice to make the falling coins look more seamless, overlap the two animations (to get rid of gaps in the downward flow of coins when the animation starts/stops)
+    for (i = 1; i < numOfDrops; i++) {
+        // get a random number for the left position
+        const dropLeft = scratchCardApp.randomRange(0, 499);
+        // get a random number for the top position
+        // the min is -100 becasue the coins need to be placed sufficiently high enough above the top of the view port, so that they are not visible before/after the animation
+        const dropTop = scratchCardApp.randomRange(-1000, -100)
+
+        $('.rain').append(`<div class="drop" id="drop${i}"></div>`);
+        $(`#drop${i}`).css('left', dropLeft);
+        $(`#drop${i}`).css('top', dropTop);
+    }
+
+    for (i = 1; i < numOfDrops; i++) {
+        const dropLeft = scratchCardApp.randomRange(0, 499);
+        const dropTop = scratchCardApp.randomRange(-1000, -100)
+
+        $('.rainB').append(`<div class="dropB" id="dropB${i}"></div>`);
+        $(`#dropB${i}`).css('left', dropLeft);
+        $(`#dropB${i}`).css('top', dropTop);
+    }
 }
 
 // this function is called when the "submit card" button is clicked
@@ -264,7 +333,13 @@ scratchCardApp.displayPrizeScreen = function() {
 // this function is called when the "submit card" button is clicked, it will hide the button using visibility: hidden
 // *** still need to remove the css shine with the button ***
 scratchCardApp.submitButtonToggle = function() {
-    $('.submit').toggleClass('hide');
+    $('.submit').toggleClass('hide outline');
+}
+
+// this function is called when the "submit card" button is clicked, it will update the prizeCounter
+// Note: on refresh, the counter will reset back to zero
+scratchCardApp.updatePrizeCounter = function(totalPrizeAmount) {    
+    $('.prizeCounter').text(`Total: $${totalPrizeAmount}`)
 }
 
 // function that contains all the events to listen for
@@ -319,8 +394,14 @@ scratchCardApp.events = function() {
         $('.scratchBoxCover').removeClass('scratched');
         // call the fxn to assign the random numbers to the scratch boxes
         scratchCardApp.assignRandomNumber();
-        // make the submit button visible again
+        // make the submit button visible again & add the css shine back to the submit button
         scratchCardApp.submitButtonToggle();
+        // if the prizeCelebration fxn was called (prize >= 100), then remove the appended coin rain droplets from the rain divs (resets it for the next win >= 100)
+        $('.rain').empty()
+        $('.rainB').empty()
+        // if user clicks "new card" before the falling coins have finished, need to remove the sound as well
+        const audioCoins = $("#fallingCoinsSound")["0"]
+        audioCoins.pause()
     })
 }
 

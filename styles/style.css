@@ -277,12 +277,25 @@ canvas {
   background-position: center;
 }
 
+.patternContainer:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+  background-image: url("../assets/floating-coins.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .stopScroll {
   position: fixed;
 }
 
 header {
-  height: 25vh;
+  height: 20vh;
   padding: 20px 0;
   position: relative;
   z-index: 20;
@@ -307,14 +320,22 @@ header i {
 h1 {
   font-size: 5.5rem;
   font-family: 'Bebas Neue', cursive;
+  line-height: 5.0rem;
 }
 
 .headerText {
   color: #ffc905;
 }
 
-main {
-  position: relative;
+.prizeCounter {
+  position: absolute;
+  font-size: 2.2rem;
+  font-weight: bold;
+  top: 60px;
+  right: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .fa-question {
@@ -326,6 +347,7 @@ main {
 .hamburgerIcon {
   height: 100%;
   padding-top: 10px;
+  padding-right: 10px;
   position: relative;
 }
 
@@ -343,8 +365,8 @@ main {
 
 .hamMenu {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 20vh;
+  bottom: 8vh;
   left: 0;
   right: 0;
   z-index: 40;
@@ -416,24 +438,10 @@ main {
 }
 
 main {
-  height: 75vh;
-  position: relative;
+  height: 80vh;
   overflow: hidden;
   padding-bottom: 50px;
   z-index: 20;
-}
-
-main:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../assets/floating-coins.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 main .flexContainer {
@@ -444,9 +452,9 @@ main .flexContainer {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -557,7 +565,7 @@ main .flexContainer {
 }
 
 .yourNumbersContainer {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .yourNumbersContainer .boxContainer {
@@ -588,66 +596,6 @@ main .flexContainer {
 .notVisible {
   opacity: 0;
   border-radius: 50%;
-}
-
-.siblingRight {
-  position: relative;
-  background-color: none;
-  background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, blueviolet 60%);
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.siblingRightTop {
-  position: relative;
-  background-color: none;
-  background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, blueviolet 40%);
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-}
-
-.siblingLeftTop {
-  position: relative;
-  background-color: none;
-  background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, blueviolet 40%);
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.siblingLeft {
-  position: relative;
-  background-color: none;
-  background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, blueviolet 60%);
-}
-
-.siblingTop {
-  position: relative;
-  background-color: none;
-  background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, blueviolet 60%);
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-.siblingBottom {
-  position: relative;
-  background-color: none;
-  background: radial-gradient(circle at 100%, rgba(138, 43, 226, 0) 60%, blueviolet 60%);
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-}
-
-.siblingRightBottom {
-  position: relative;
-  background-color: none;
-  background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, blueviolet 40%);
-}
-
-.siblingLeftBottom {
-  position: relative;
-  background-color: none;
-  background: radial-gradient(circle at 0 0, rgba(138, 43, 226, 0) 40%, blueviolet 40%);
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
 }
 
 button.submit {
@@ -749,7 +697,7 @@ button.submit {
 
 .buttonContainer {
   border-radius: 5px;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 button::before {
@@ -769,11 +717,369 @@ button:hover::before {
   left: 100px;
 }
 
+.coinContainer {
+  width: 100%;
+  height: calc(100vh + 150px);
+  position: absolute;
+  top: -150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+
+.rainCoin {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  z-index: 30;
+}
+
+.coin0 {
+  -webkit-animation: rain0 2s ease 0s 10;
+          animation: rain0 2s ease 0s 10;
+}
+
+.coin1 {
+  -webkit-animation: rain1 2s ease 1s 10;
+          animation: rain1 2s ease 1s 10;
+}
+
+.coin2 {
+  -webkit-animation: rain2 2s ease 0s 10;
+          animation: rain2 2s ease 0s 10;
+}
+
+.coin3 {
+  -webkit-animation: rain3 2s ease 1s 10;
+          animation: rain3 2s ease 1s 10;
+}
+
+.coin4 {
+  -webkit-animation: rain4 2s ease 0s 10;
+          animation: rain4 2s ease 0s 10;
+}
+
+.coin5 {
+  -webkit-animation: rain5 2s ease 1s 10;
+          animation: rain5 2s ease 1s 10;
+}
+
+.coin6 {
+  -webkit-animation: rain6 2s ease 0s 10;
+          animation: rain6 2s ease 0s 10;
+}
+
+.coin7 {
+  -webkit-animation: rain7 2s ease 1s 10;
+          animation: rain7 2s ease 1s 10;
+}
+
+.coin8 {
+  -webkit-animation: rain8 2s ease 0s 10;
+          animation: rain8 2s ease 0s 10;
+}
+
+.coin9 {
+  -webkit-animation: rain9 2s ease 2s 10;
+          animation: rain9 2s ease 2s 10;
+}
+
+.coin10 {
+  -webkit-animation: rain10 2s ease 0s 10;
+          animation: rain10 2s ease 0s 10;
+}
+
+.coin11 {
+  -webkit-animation: rain11 2s ease 2s 10;
+          animation: rain11 2s ease 2s 10;
+}
+
+.coin12 {
+  -webkit-animation: rain12 2s ease 0s 10;
+          animation: rain12 2s ease 0s 10;
+}
+
+.coin13 {
+  -webkit-animation: rain13 2s ease 2s 10;
+          animation: rain13 2s ease 2s 10;
+}
+
+.coin14 {
+  -webkit-animation: rain14 2s ease 0s 10;
+          animation: rain14 2s ease 0s 10;
+}
+
+@-webkit-keyframes rain0 {
+  100% {
+    -webkit-transform: translateX(0) translateY(100vh);
+            transform: translateX(0) translateY(100vh);
+  }
+}
+
+@keyframes rain0 {
+  100% {
+    -webkit-transform: translateX(0) translateY(100vh);
+            transform: translateX(0) translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain1 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain1 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain2 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain2 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain3 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain3 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain4 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain4 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain5 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain5 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain6 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain6 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain7 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain7 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain8 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain8 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain9 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain9 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain10 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain10 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain11 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain11 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain12 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain12 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain13 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain13 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@-webkit-keyframes rain14 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+@keyframes rain14 {
+  100% {
+    -webkit-transform: translateY(100vh);
+            transform: translateY(100vh);
+  }
+}
+
+.rain, .rainB {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.drop {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: url("../assets/coinCursor.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  z-index: 30;
+  -webkit-animation: fall 2.63s linear 1;
+          animation: fall 2.63s linear 1;
+}
+
+.dropB {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: url("../assets/coinCursor.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  z-index: 30;
+  -webkit-animation: fall 2.63s linear 1.2s 1;
+          animation: fall 2.63s linear 1.2s 1;
+}
+
+@-webkit-keyframes fall {
+  100% {
+    -webkit-transform: translateY(200vh);
+            transform: translateY(200vh);
+  }
+}
+
+@keyframes fall {
+  100% {
+    -webkit-transform: translateY(200vh);
+            transform: translateY(200vh);
+  }
+}
+
 footer {
   width: 100%;
   position: relative;
   z-index: 50;
-  height: 8vh;
+  padding: 20px 0;
   background-image: -webkit-gradient(linear, left bottom, left top, from(#00adef), to(rgba(255, 255, 255, 0)));
   background-image: linear-gradient(to top, #00adef, rgba(255, 255, 255, 0));
   font-size: 1.6rem;
