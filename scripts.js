@@ -277,7 +277,7 @@ scratchCardApp.prizeCelebration = function() {
     setTimeout(() => {
         audioCoins.pause()
         audioWinner.pause()
-    }, 3250);
+    }, 3550);
 
     // the number of falling coins for the animation
     const numOfDrops = 158;
