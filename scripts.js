@@ -310,7 +310,7 @@ scratchCardApp.prizeCelebration = function() {
 // this function is called when the "submit card" button is clicked
 // display prize screen to alert user of the amount won during this game
 scratchCardApp.displayPrizeScreen = function() {
-    // 
+    // Remove the behind class from prizeAlertContainer to bring it forward
     $('.prizeAlertContainer').toggleClass('behind')
     // winner card
     if (scratchCardApp.finalGamePrizeAmount !== '$0') {
