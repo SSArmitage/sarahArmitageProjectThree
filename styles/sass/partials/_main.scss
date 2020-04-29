@@ -1,5 +1,5 @@
 main {
-    height: 80vh;
+    min-height: 80vh;
     // height: 77vh;
     // background-color: $secondary;
     //  background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
@@ -9,6 +9,9 @@ main {
     // background-image: url("https://www.transparenttextures.com/patterns/triangles.png");
     
     // position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     padding-bottom: 50px;
     z-index: 20;
