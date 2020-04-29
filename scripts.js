@@ -263,15 +263,15 @@ scratchCardApp.prizeCelebration = function() {
     const audioCoins = $("#fallingCoinsSound")["0"]
     const audioWinner = $("#winnerSound")["0"]
     audioWinner.play()
-    audioCoins.play()
+    // audioCoins.play()
     
     // the audio file is a bit slow, speed up the scratching sound x2
     audioCoins.playbackRate = 2.0
 
     // wait 1s before starting the falling coins sound (gives the coins ~time to reach the bottom of the screen)
-    // setTimeout(() => {
-    //     audioCoins.play()
-    // }, 1000);
+    setTimeout(() => {
+        audioCoins.play()
+    }, 1000);
 
     // end the falling coins sound to coincide with the end of the falling coins animation
     setTimeout(() => {
