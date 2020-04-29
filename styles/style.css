@@ -437,6 +437,15 @@ h1 {
   background-position: center;
 }
 
+@media (max-width: 400px) {
+  .instructionContainer li {
+    font-size: 1.8rem;
+  }
+  .instructionContainer h2 {
+    font-size: 3.5rem;
+  }
+}
+
 main {
   min-height: 80vh;
   display: -webkit-box;
